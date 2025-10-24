@@ -30,3 +30,8 @@ companions to create devastating elemental combos.
 - **Version Control:** Git
 
 ## Development Log
+
+---
+
+**Note:** This is a solo dev learning project. Progress updates and playable 
+builds will be shared as development continues.
