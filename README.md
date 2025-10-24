@@ -1,2 +1,64 @@
 # Project-R
-A fast-paced action roguelite where mastering elemental magic is your only path  to survival. Swap between warriors mid-combo, chain devastating elemental reactions,  and dive deeper into procedurally generated dungeons. Every run teaches you new spells,  every combination unlocks new strategies.  Godot 4 | Solo dev passion project
+
+# 
+
+##### \*\*Genre:\*\* Action Roguelite RPG  
+
+##### \*\*Engine:\*\* Godot 4  
+
+##### \*\*Status:\*\* Early prototype / Work in progress  
+
+##### \*\*Dev Time:\*\* Started \[Date]
+
+# 
+
+## Core Concept
+
+##### A roguelite action RPG with a focus on elemental magic combinations and 
+
+##### tag-team combat mechanics. Switch between your protagonist and recruited 
+
+##### companions to create devastating elemental combos.
+
+# 
+
+## Key Features (Planned)
+
+##### \- Tag-team character switching system
+
+##### \- Deep elemental magic with 4 base elements (Fire, Water, Earth, Wind) 
+
+##### &nbsp; and 6+ unique combinations
+
+##### \- Roguelite progression: unlock new spells permanently between runs
+
+##### \- Procedurally generated dungeons with increasing difficulty
+
+##### \- Companion recruitment system with unique playstyles
+
+# 
+
+## Current Development Phase
+
+##### \*\*Phase 0 - Core Movement \& Combat\*\* (Week 1-2)
+
+##### \- \[ ] Player movement and dash
+
+##### \- \[ ] Basic slash attack with proper game feel
+
+##### \- \[ ] First enemy and damage system
+
+# 
+
+## Tech Stack
+
+##### \- \*\*Engine:\*\* Godot 4.5.1
+
+##### \- \*\*Language:\*\* GDScript
+
+##### \- \*\*Version Control:\*\* Git
+
+# 
+
+## Development Log
+
