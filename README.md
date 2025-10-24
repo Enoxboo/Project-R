@@ -3,7 +3,7 @@
 **Genre:** Action Roguelite RPG  
 **Engine:** Godot 4  
 **Status:** Early prototype / Work in progress  
-**Dev Time:** Started [Date]
+**Dev Time:** Started 24/10/25
 
 ## Core Concept
 A roguelite action RPG with a focus on elemental magic combinations and 
@@ -25,7 +25,7 @@ companions to create devastating elemental combos.
 - [ ] First enemy and damage system
 
 ## Tech Stack
-- **Engine:** Godot 4.x
+- **Engine:** Godot 4.5.1
 - **Language:** GDScript
 - **Version Control:** Git
 
