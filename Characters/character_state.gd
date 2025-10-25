@@ -2,6 +2,7 @@ class_name CharacterState
 extends State
 
 const MOVE = "Move"
+const DASH = "Dash"
 
 var character: Character
 

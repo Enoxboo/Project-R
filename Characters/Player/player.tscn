@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhht0ckg1lr2d"]
+[gd_scene load_steps=8 format=3 uid="uid://bhht0ckg1lr2d"]
 
 [ext_resource type="Texture2D" uid="uid://dyboi45etgm0e" path="res://Characters/Player/_Sprites/square.png" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://de8xv4ccteywg" path="res://Characters/Player/player.gd" id="1_j341n"]
 [ext_resource type="Resource" uid="uid://d77gos8p0w3i" path="res://Characters/Player/player_data.tres" id="2_xf5fp"]
 [ext_resource type="Script" uid="uid://bkg8rfh1hctco" path="res://StateMachine/state_machine.gd" id="3_bqsbk"]
 [ext_resource type="Script" uid="uid://xgayqj6cloig" path="res://Characters/States/move.gd" id="5_osktb"]
+[ext_resource type="Script" uid="uid://bml6n30u6d7hs" path="res://Characters/States/dash.gd" id="6_osktb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j341n"]
 size = Vector2(16, 16)
@@ -20,7 +21,10 @@ texture = ExtResource("1_6xdwp")
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j341n")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="DashDurationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashCooldownTimer" type="Timer" parent="."]
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_bqsbk")
@@ -29,3 +33,10 @@ metadata/_custom_type_script = "uid://bkg8rfh1hctco"
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource("5_osktb")
 metadata/_custom_type_script = "uid://d1i6ifadv6k1n"
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource("6_osktb")
+metadata/_custom_type_script = "uid://d1i6ifadv6k1n"
+
+[connection signal="timeout" from="DashDurationTimer" to="StateMachine/Dash" method="_on_dash_duration_timer_timeout"]
+[connection signal="timeout" from="DashCooldownTimer" to="StateMachine/Dash" method="_on_dash_cooldown_timer_timeout"]

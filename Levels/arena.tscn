@@ -32,7 +32,6 @@ sources/0 = SubResource("TileSetAtlasSource_444vf")
 [node name="Arena" type="Node2D"]
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -43,4 +42,5 @@ tile_set = SubResource("TileSet_27ga2")
 position = Vector2(-152.39, 106.8)
 
 [node name="Player" parent="." instance=ExtResource("2_3iomx")]
-position = Vector2(-190, 78)
+z_index = 2
+position = Vector2(-109, 51)
