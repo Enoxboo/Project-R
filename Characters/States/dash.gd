@@ -2,16 +2,16 @@ extends CharacterState
 
 func enter() -> void:
 	character.can_dash = false
-	
+
 	var input_dir := character.get_input_direction()
 	var dash_dir := input_dir if input_dir else character.last_direction
-	
+
 	_set_dash_particles_direction(-dash_dir)
-	
+
 	character.velocity = dash_dir * character.data.dash_force
 	character.dash_duration_timer.start()
 	character.dash_cooldown_timer.start()
-	
+
 	character.start_dash_particles()
 
 
