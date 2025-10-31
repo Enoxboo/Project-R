@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhht0ckg1lr2d"]
+[gd_scene load_steps=12 format=3 uid="uid://bhht0ckg1lr2d"]
 
 [ext_resource type="Texture2D" uid="uid://dyboi45etgm0e" path="res://Characters/Player/_Sprites/square.png" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://de8xv4ccteywg" path="res://Characters/Player/player.gd" id="1_j341n"]
@@ -6,9 +6,29 @@
 [ext_resource type="Script" uid="uid://bkg8rfh1hctco" path="res://StateMachine/state_machine.gd" id="3_bqsbk"]
 [ext_resource type="Script" uid="uid://xgayqj6cloig" path="res://Characters/States/move.gd" id="5_osktb"]
 [ext_resource type="Script" uid="uid://bml6n30u6d7hs" path="res://Characters/States/dash.gd" id="6_osktb"]
+[ext_resource type="Texture2D" uid="uid://d3xd0ixx0r73x" path="res://Characters/Player/_Sprites/dash_trail.png" id="7_7vev3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j341n"]
 size = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_7vev3"]
+offsets = PackedFloat32Array(0.2735849, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_klx3t"]
+gradient = SubResource("Gradient_7vev3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_klx3t"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+spread = 30.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 3.0000002
+scale_min = 0.5
+color_ramp = SubResource("GradientTexture1D_klx3t")
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -21,10 +41,20 @@ texture = ExtResource("1_6xdwp")
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j341n")
 
+[node name="DashBurst" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = ExtResource("7_7vev3")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_klx3t")
+
 [node name="DashDurationTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="DashCooldownTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_bqsbk")
