@@ -4,6 +4,7 @@ class_name StateMachine
 
 var state: State
 
+
 func _ready() -> void:
 	state = get_child(0)
 	for state_node: State in find_children("*", "State"):
@@ -12,8 +13,10 @@ func _ready() -> void:
 	await owner.ready
 	state.enter()
 
+
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
+
 
 func _transition_to_next_state(target_state_path: String) -> void:
 	if not has_node(target_state_path):

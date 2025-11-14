@@ -2,16 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cvwoife8aauxw" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://d0t3xhui75wfh" path="res://Player/_Sprites/square.png" id="1_l8h54"]
-[ext_resource type="Resource" uid="uid://dsefs1fellje" path="res://Player/Main/main_data.tres" id="2_btcbx"]
 [ext_resource type="Script" uid="uid://bkg8rfh1hctco" path="res://StateMachine/state_machine.gd" id="4_k53q1"]
-[ext_resource type="Script" uid="uid://bm16kmhys2frc" path="res://Player/move.gd" id="5_fhl08"]
+[ext_resource type="Script" uid="uid://bm16kmhys2frc" path="res://Player/States/move.gd" id="5_fhl08"]
+[ext_resource type="Script" uid="uid://bng853sk1p60f" path="res://Player/States/switch.gd" id="6_fhl08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4ntmi")
-data = ExtResource("2_btcbx")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_l8h54")
@@ -25,4 +24,8 @@ metadata/_custom_type_script = "uid://bkg8rfh1hctco"
 
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource("5_fhl08")
+metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
+
+[node name="Switch" type="Node" parent="StateMachine"]
+script = ExtResource("6_fhl08")
 metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
