@@ -6,6 +6,9 @@ func enter() -> void:
 
 
 func switch_character() -> void:
+	parent.moveset_instance.reset_attack(parent)
+	parent.can_attack = true
 	parent.is_main_active = !parent.is_main_active
 	parent.data = parent.MAIN_DATA if parent.is_main_active else parent.ELEANOR_DATA
 	parent.sprite.texture = parent.data.sprite
+	parent.moveset_instance = parent.data.moveset.new()
