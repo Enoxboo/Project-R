@@ -12,6 +12,8 @@ var is_ally: bool = true
 var traveling_time: float = 10.0
 var speed: float = 800.0
 
+var direction: Vector2 = Vector2(1.0, 0.0)
+
 const playerhurtbox: int = 4
 const playerhitbox: int = 8
 const enemyhurtbox: int = 64
@@ -27,9 +29,10 @@ func _ready() -> void:
 		area_2d.collision_layer = playerhitbox
 		area_2d.collision_mask = enemyhurtbox
 	timer.wait_time = traveling_time
+	timer.start()
 
 func _physics_process(delta: float) -> void:
 	if timer.is_stopped():
 		queue_free()
 	
-	position.x += speed * delta
+	position += direction * speed * delta

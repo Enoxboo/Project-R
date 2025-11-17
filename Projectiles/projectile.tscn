@@ -21,4 +21,3 @@ shape = SubResource("RectangleShape2D_3v6ly")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-autostart = true
