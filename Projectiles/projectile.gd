@@ -1,0 +1,35 @@
+extends Node2D
+
+class_name Projectile
+
+@onready var area_2d: Area2D = $Area2D
+@onready var sprite: Sprite2D = $Sprite
+@onready var timer: Timer = $Timer
+const BASE_PROJECTILE = preload("uid://uponwqt1ncca")
+
+var sprite_texture: Texture2D = BASE_PROJECTILE
+var is_ally: bool = true
+var traveling_time: float = 10.0
+var speed: float = 800.0
+
+const playerhurtbox: int = 4
+const playerhitbox: int = 8
+const enemyhurtbox: int = 64
+const enemyhitbox: int = 128
+
+func _ready() -> void:
+	if sprite_texture:
+		sprite.texture = sprite_texture
+	if not is_ally:
+		area_2d.collision_layer = enemyhitbox
+		area_2d.collision_mask = playerhurtbox
+	else: 
+		area_2d.collision_layer = playerhitbox
+		area_2d.collision_mask = enemyhurtbox
+	timer.wait_time = traveling_time
+
+func _physics_process(delta: float) -> void:
+	if timer.is_stopped():
+		queue_free()
+	
+	position.x += speed * delta

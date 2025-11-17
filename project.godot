@@ -28,6 +28,7 @@ folder_colors={
 "res://Autoload/": "yellow",
 "res://Levels/": "green",
 "res://Player/": "purple",
+"res://Projectiles/": "blue",
 "res://StateMachine/": "gray"
 }
 
