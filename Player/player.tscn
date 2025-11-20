@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://damlylql1l7of"]
+
+[ext_resource type="Script" uid="uid://cvwoife8aauxw" path="res://Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://d0t3xhui75wfh" path="res://Player/_Sprites/square.png" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://bkg8rfh1hctco" path="res://StateMachine/state_machine.gd" id="4_k53q1"]
+[ext_resource type="Script" uid="uid://bm16kmhys2frc" path="res://StateMachine/States/move.gd" id="5_fhl08"]
+[ext_resource type="Script" uid="uid://dki71e3o8i881" path="res://StateMachine/States/hitstun.gd" id="6_00tjw"]
+[ext_resource type="Script" uid="uid://bng853sk1p60f" path="res://StateMachine/States/switch.gd" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Assets/Combat/hurtbox.gd" id="6_od3ui"]
+[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="6_vtle1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtle1"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhl08"]
+size = Vector2(50, 50)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+script = ExtResource("1_4ntmi")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_l8h54")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4ntmi")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_k53q1")
+metadata/_custom_type_script = "uid://bkg8rfh1hctco"
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("5_fhl08")
+metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
+
+[node name="Switch" type="Node" parent="StateMachine"]
+script = ExtResource("6_fhl08")
+metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
+
+[node name="Hitstun" type="Node" parent="StateMachine"]
+script = ExtResource("6_00tjw")
+metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 128
+script = ExtResource("6_od3ui")
+
+[node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_vtle1")
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(40, 0)
+collision_layer = 8
+collision_mask = 64
+monitoring = false
+monitorable = false
+
+[node name="HitboxSprite" type="Sprite2D" parent="Hitbox"]
+visible = false
+texture = ExtResource("6_vtle1")
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_fhl08")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="AttackActive" type="Timer" parent="Timers"]
+
+[node name="AttackRest" type="Timer" parent="Timers"]
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
