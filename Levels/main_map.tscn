@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://bvnkyljxinm4e"]
+[gd_scene load_steps=9 format=4 uid="uid://bvnkyljxinm4e"]
 
 [ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="1_0ltqd"]
 [ext_resource type="PackedScene" uid="uid://damlylql1l7of" path="res://Player/player.tscn" id="2_o06ir"]
 [ext_resource type="PackedScene" uid="uid://syt0a8y6s0xu" path="res://Enemies/base_enemy.tscn" id="3_24ut3"]
 [ext_resource type="Resource" uid="uid://d5ulvj5ekhcb" path="res://Enemies/Data/base_enemy_data.tres" id="4_4c8el"]
+[ext_resource type="PackedScene" uid="uid://cy4rgpb483u7c" path="res://Assets/companion_placeholder.tscn" id="5_o45qy"]
+[ext_resource type="Resource" uid="uid://davvempunmoqd" path="res://Player/Data/eleanor_data.tres" id="6_eujtv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o06ir"]
 texture = ExtResource("1_0ltqd")
@@ -45,3 +47,7 @@ position = Vector2(-124, 9)
 
 [node name="BaseEnemy" parent="." instance=ExtResource("3_24ut3")]
 data = ExtResource("4_4c8el")
+
+[node name="CompanionPlaceholder" parent="." instance=ExtResource("5_o45qy")]
+position = Vector2(-283, -137)
+data = ExtResource("6_eujtv")

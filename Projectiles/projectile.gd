@@ -7,17 +7,19 @@ class_name Projectile
 @onready var timer: Timer = $Timer
 const BASE_PROJECTILE = preload("uid://uponwqt1ncca")
 
-var sprite_texture: Texture2D = BASE_PROJECTILE
-var is_ally: bool = true
-var traveling_time: float = 10.0
-var speed: float = 800.0
-
-var direction: Vector2 = Vector2(1.0, 0.0)
-
 const playerhurtbox: int = 4
 const playerhitbox: int = 8
 const enemyhurtbox: int = 64
 const enemyhitbox: int = 128
+
+#Change them in the new instance
+var sprite_texture: Texture2D = BASE_PROJECTILE
+var is_ally: bool = true
+var traveling_time: float = 10.0
+var speed: float = 800.0
+var damage: int = 1
+
+var direction: Vector2 = Vector2(1.0, 0.0)
 
 func _ready() -> void:
 	if sprite_texture:
@@ -36,3 +38,8 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 	
 	position += direction * speed * delta
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.has_method("take_damage"):
+		area.take_damage(damage)

@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("1_kdmin")
 sprite = ExtResource("2_vcytp")
-speed = 100.0
+speed = 1000.0
 moveset = ExtResource("1_vcytp")
 metadata/_custom_type_script = "uid://bwr5om3kv2b7v"
