@@ -3,7 +3,7 @@ extends Node
 class_name State
 
 @warning_ignore("unused_signal")
-signal finished(next_state_path: String)
+signal finished(next_state_path: String, data: Dictionary)
 
 const MOVE = "Move"
 const SWITCH = "Switch"
@@ -22,7 +22,7 @@ func physics_update(_delta: float) -> void:
 	pass
 
 
-func enter() -> void:
+func enter(_data := { }) -> void:
 	pass
 
 

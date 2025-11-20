@@ -18,8 +18,10 @@ var is_ally: bool = true
 var traveling_time: float = 10.0
 var speed: float = 800.0
 var damage: int = 1
+var stun_duration: float = 1.0
 
 var direction: Vector2 = Vector2(1.0, 0.0)
+
 
 func _ready() -> void:
 	if sprite_texture:
@@ -27,19 +29,20 @@ func _ready() -> void:
 	if not is_ally:
 		area_2d.collision_layer = enemyhitbox
 		area_2d.collision_mask = playerhurtbox
-	else: 
+	else:
 		area_2d.collision_layer = playerhitbox
 		area_2d.collision_mask = enemyhurtbox
 	timer.wait_time = traveling_time
 	timer.start()
 
+
 func _physics_process(delta: float) -> void:
 	if timer.is_stopped():
 		queue_free()
-	
+
 	position += direction * speed * delta
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
-		area.take_damage(damage)
+		area.take_damage(damage, direction, stun_duration)

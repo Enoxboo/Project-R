@@ -1,9 +1,10 @@
 extends State
 
-func enter() -> void:
+func enter(_data := { }) -> void:
 	if parent.companion_data:
 		switch_character()
 	finished.emit(MOVE)
+
 
 func switch_character() -> void:
 	parent.moveset_instance.reset_attack(parent)

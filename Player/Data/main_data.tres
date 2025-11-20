@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="PlayerData" load_steps=4 format=3 uid="uid://dsefs1fellje"]
 
-[ext_resource type="Script" uid="uid://dhssc3mpye67i" path="res://Player/Movesets/main_moveset.gd" id="1_eucv4"]
 [ext_resource type="Script" uid="uid://bwr5om3kv2b7v" path="res://Player/Data/_data.gd" id="1_mphok"]
+[ext_resource type="Script" uid="uid://dhssc3mpye67i" path="res://Player/Movesets/main_moveset.gd" id="1_ygeq7"]
 [ext_resource type="Texture2D" uid="uid://d0t3xhui75wfh" path="res://Player/_Sprites/square.png" id="2_3sm7w"]
 
 [resource]
 script = ExtResource("1_mphok")
 sprite = ExtResource("2_3sm7w")
-moveset = ExtResource("1_eucv4")
+moveset = ExtResource("1_ygeq7")
 metadata/_custom_type_script = "uid://bwr5om3kv2b7v"
