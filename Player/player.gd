@@ -3,7 +3,6 @@ extends CharacterBody2D
 class_name Player
 
 const MAIN_DATA = preload("uid://dsefs1fellje")
-const ELEANOR_DATA = preload("uid://davvempunmoqd")
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var hitbox: Area2D = $Hitbox
@@ -17,7 +16,7 @@ var is_main_active = true
 var can_attack = true
 var can_spell_1 = true
 var can_spell_2 = true
-
+var companion_data: Resource = null
 
 func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
@@ -31,3 +30,7 @@ func _input(event: InputEvent) -> void:
 		moveset_instance.spell_1(self)
 	elif event.is_action_pressed("spell_2"):
 		moveset_instance.spell_2(self)
+
+func change_companion(new_companion: Resource) -> void:
+	companion_data = new_companion
+	print(companion_data)
