@@ -8,6 +8,8 @@ signal finished(next_state_path: String)
 const MOVE = "Move"
 const SWITCH = "Switch"
 
+const CHASE = "Chase"
+
 var parent: CharacterBody2D
 
 

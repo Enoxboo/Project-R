@@ -27,11 +27,16 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://Assets/": "teal",
 "res://Autoload/": "yellow",
+"res://Enemies/": "red",
 "res://Levels/": "green",
 "res://Player/": "purple",
 "res://Projectiles/": "blue",
 "res://StateMachine/": "gray"
 }
+
+[global_group]
+
+Player=""
 
 [input]
 
