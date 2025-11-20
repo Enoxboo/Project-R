@@ -9,8 +9,10 @@ func _ready() -> void:
 	state = get_child(0)
 	for state_node: State in find_children("*", "State"):
 		state_node.finished.connect(_transition_to_next_state)
+		
 
 	await owner.ready
+	owner.hurtbox.hit_received.connect(_on_hit_received)
 	state.enter()
 
 
@@ -26,3 +28,6 @@ func _transition_to_next_state(target_state_path: String) -> void:
 	state.exit()
 	state = get_node(target_state_path)
 	state.enter()
+
+func _on_hit_received() -> void:
+	_transition_to_next_state("Hitstun")

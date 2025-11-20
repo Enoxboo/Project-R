@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Enemy
 
 @onready var sprite: Sprite2D = $Sprite
+@onready var hurtbox: Area2D = $Hurtbox
 @export var data: EnemyData
 
 var player: Player
@@ -17,5 +18,6 @@ func _ready() -> void:
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
+	
 	if area.has_method("take_damage"):
 		area.take_damage(damage)

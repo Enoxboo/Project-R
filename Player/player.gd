@@ -7,6 +7,7 @@ const MAIN_DATA = preload("uid://dsefs1fellje")
 @onready var sprite: Sprite2D = $Sprite
 @onready var hitbox: Area2D = $Hitbox
 @onready var hitbox_sprite: Sprite2D = $Hitbox/HitboxSprite
+@onready var hurtbox: Area2D = $Hurtbox
 @onready var attack_active: Timer = $Timers/AttackActive
 @onready var attack_rest: Timer = $Timers/AttackRest
 
