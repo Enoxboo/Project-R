@@ -5,6 +5,8 @@ class_name Enemy
 @onready var sprite: Sprite2D = $Sprite
 @onready var hurtbox: Area2D = $Hurtbox
 @export var data: EnemyData
+@onready var knockback_timer: Timer = $Timers/KnockbackTimer
+@onready var stun_timer: Timer = $Timers/StunTimer
 
 var player: Player
 var damage: int = 1

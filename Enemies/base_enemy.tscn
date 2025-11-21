@@ -57,4 +57,12 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_hrovn")
 debug_color = Color(1, 0, 0, 0.41960785)
 
+[node name="Timers" type="Node" parent="."]
+
+[node name="KnockbackTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="Timers"]
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

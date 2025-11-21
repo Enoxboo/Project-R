@@ -29,6 +29,8 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = { }
 	state.enter(data)
 
 
-func _on_hit_received(direction: Vector2, time: int) -> void:
+func _on_hit_received(direction: Vector2, time: float) -> void:
 	var data: Dictionary = { "direction": direction, "time": time }
+	print(data)
+	print(time)
 	_transition_to_next_state("Hitstun", data)

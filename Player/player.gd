@@ -10,6 +10,8 @@ const MAIN_DATA = preload("uid://dsefs1fellje")
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var attack_active: Timer = $Timers/AttackActive
 @onready var attack_rest: Timer = $Timers/AttackRest
+@onready var knockback_timer: Timer = $Timers/KnockbackTimer
+@onready var stun_timer: Timer = $Timers/StunTimer
 
 var data: PlayerData = MAIN_DATA
 var moveset_instance: Moveset = data.moveset.new()

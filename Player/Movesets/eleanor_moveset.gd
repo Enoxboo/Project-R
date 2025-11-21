@@ -15,7 +15,7 @@ func _perform_attack(player: Player) -> void:
 	projectile.traveling_time = arrow_time
 	projectile.is_ally = ally
 	projectile.damage = damage
-	projectile.stun_duration = player.data.stun_diration
+	projectile.stun_duration = player.data.stun_duration
 	projectile.global_position = player.global_position
 	projectile.direction = (player.get_global_mouse_position() - player.global_position).normalized()
 	player.get_parent().add_child(projectile)

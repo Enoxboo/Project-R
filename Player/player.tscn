@@ -73,4 +73,10 @@ shape = SubResource("RectangleShape2D_fhl08")
 
 [node name="AttackRest" type="Timer" parent="Timers"]
 
+[node name="KnockbackTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="Timers"]
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

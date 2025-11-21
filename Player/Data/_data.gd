@@ -12,5 +12,5 @@ const initial_state: String = "Move"
 @export var attack_active: float = 0.3
 @export var attack_rest: float = 0.5
 @export var attack_offset: float = 40.0
-@export var stun_duration: float = 1.0
+@export var stun_duration: float = 0.7
 @export var stun_resistance: float = 0.0
