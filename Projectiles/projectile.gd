@@ -6,6 +6,7 @@ class_name Projectile
 @onready var sprite: Sprite2D = $Sprite
 @onready var timer: Timer = $Timer
 const BASE_PROJECTILE = preload("uid://uponwqt1ncca")
+const PROJECTILE = preload("uid://cl3jxyqt80hkg")
 
 const playerhurtbox: int = 4
 const playerhitbox: int = 8
@@ -41,7 +42,6 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 	position += direction * speed * delta
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):

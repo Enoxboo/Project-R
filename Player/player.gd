@@ -21,7 +21,7 @@ var can_attack = true
 var can_spell_1 = true
 var can_spell_2 = true
 var companion_data: Resource = null
-var spells: Dictionary = {1: "FIRE", 2: ""}
+var spell1_instance
 
 func _ready() -> void:
 	current_health = data.max_health

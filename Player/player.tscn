@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bm16kmhys2frc" path="res://StateMachine/States/move.gd" id="5_fhl08"]
 [ext_resource type="Script" uid="uid://dki71e3o8i881" path="res://StateMachine/States/hitstun.gd" id="6_00tjw"]
 [ext_resource type="Script" uid="uid://bng853sk1p60f" path="res://StateMachine/States/switch.gd" id="6_fhl08"]
-[ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Assets/Combat/hurtbox.gd" id="6_od3ui"]
+[ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Combat/hurtbox.gd" id="6_od3ui"]
 [ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="6_vtle1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
