@@ -22,9 +22,11 @@ var can_spell_1 = true
 var can_spell_2 = true
 var companion_data: Resource = null
 var spell1_instance
+var current_mana: float
 
 func _ready() -> void:
 	current_health = data.max_health
+	current_mana = data.max_mana
 	print(current_health)
 
 

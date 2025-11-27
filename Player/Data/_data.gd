@@ -6,6 +6,7 @@ const initial_state: String = "Move"
 
 @export var sprite: Texture2D
 @export var max_health: int = 10
+@export var max_mana: int = 100
 @export var speed: float = 300.0
 @export var moveset: GDScript
 @export var damage: int = 1
