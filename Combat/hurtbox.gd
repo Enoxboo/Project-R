@@ -10,6 +10,7 @@ func take_damage(amount: int, direction: Vector2, stun_duration: float) -> void:
 	var stun_time: float = max(0, stun_duration - get_parent().data.stun_resistance)
 	emit_signal("hit_received", direction, stun_time)
 
+
 func burn(amount: int, damage: int):
 	for time in amount:
 		get_parent().sprite.modulate = "RED"

@@ -2,6 +2,7 @@ class_name ProjectileHelper
 
 const PROJECTILE = preload("uid://cl3jxyqt80hkg")
 
+
 static func throw(parent, sprite, speed, time, is_ally, damage, stun):
 	var proj = PROJECTILE.instantiate()
 	proj.sprite_texture = sprite
