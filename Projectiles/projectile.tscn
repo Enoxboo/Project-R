@@ -1,16 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cl3jxyqt80hkg"]
 
 [ext_resource type="Script" uid="uid://bib08dh2sh7on" path="res://Projectiles/projectile.gd" id="1_ggq0q"]
-[ext_resource type="Texture2D" uid="uid://uponwqt1ncca" path="res://Projectiles/arrow.png" id="2_08w86"]
+[ext_resource type="Texture2D" uid="uid://c2vcprt14i77g" path="res://Player/_Sprites/wind.png" id="2_ggq0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3v6ly"]
-size = Vector2(10, 2)
+resource_local_to_scene = true
+size = Vector2(6, 30)
 
 [node name="Projectile" type="Node2D"]
 script = ExtResource("1_ggq0q")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_08w86")
+texture = ExtResource("2_ggq0q")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

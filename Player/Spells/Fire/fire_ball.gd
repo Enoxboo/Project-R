@@ -1,15 +1,14 @@
 extends Spell
 
-const FIRE_BALL = preload("uid://d4d0800xuv8cg")
 const FIRE = preload("uid://b2qji8hvgq83i")
 
-const fireball_speed: float = 1000.0
-const fireball_time: float = 10.0
-const ally: bool = true
+var fireball_speed: float = 1000.0
+var fireball_time: float = 10.0
+var ally: bool = true
 var damage: int = 1
 var fireball_stun: float = 0.2
 var cooldown: float = 3.0
-
+var size: Vector2 = Vector2(10.0, 14.0)
 
 func _on_area_entered(area: Area2D) -> void:
 	area.burn(3, 1)
@@ -22,7 +21,7 @@ func cast(player) -> bool:
 	player.current_mana -= mana_cost
 	print(player.current_mana)
 
-	var proj = ProjectileHelper.throw(player, FIRE, fireball_speed, fireball_time, ally, damage, fireball_stun)
+	var proj = ProjectileHelper.throw(player, FIRE, size, fireball_speed, fireball_time, ally, damage, fireball_stun, true)
 	proj.area_2d.area_entered.connect(_on_area_entered)
 
 	return true

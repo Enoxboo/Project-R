@@ -106,6 +106,9 @@ pause={
 2d_physics/layer_6="EnemyCollision"
 2d_physics/layer_7="EnemyHurtbox"
 2d_physics/layer_8="EnemyHitbox"
+2d_physics/layer_9="PlayerProjectile"
+2d_physics/layer_12="SpellUtility"
+2d_physics/layer_13="EnemyProjectile"
 
 [physics]
 

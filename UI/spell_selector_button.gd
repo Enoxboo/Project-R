@@ -2,10 +2,11 @@ extends Control
 
 var player: Player
 
-@export_enum("fireball") var spell_name: String
+@export_enum("fireball", "windwall") var spell_name: String
 
 const SPELLS = {
 	"fireball": preload("uid://bcceopqyc7p3h"),
+	"windwall": preload("uid://bmti8dy6ag2yj"),
 }
 
 
