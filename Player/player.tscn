@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://damlylql1l7of"]
+[gd_scene load_steps=13 format=3 uid="uid://damlylql1l7of"]
 
 [ext_resource type="Script" uid="uid://cvwoife8aauxw" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://d0t3xhui75wfh" path="res://Player/_Sprites/square.png" id="1_l8h54"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bng853sk1p60f" path="res://StateMachine/States/switch.gd" id="6_fhl08"]
 [ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Combat/hurtbox.gd" id="6_od3ui"]
 [ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="6_vtle1"]
+[ext_resource type="Script" uid="uid://cwd20fvs5i4rb" path="res://StateMachine/States/dash.gd" id="7_00tjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(32, 32)
@@ -42,6 +43,10 @@ metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
 
 [node name="Hitstun" type="Node" parent="StateMachine"]
 script = ExtResource("6_00tjw")
+metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource("7_00tjw")
 metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -82,6 +87,9 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="DashCooldown" type="Timer" parent="Timers"]
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Timers/Spell1Cooldown" to="." method="_on_spell_1_cooldown_timeout"]
 [connection signal="timeout" from="Timers/SwitchTimer" to="." method="_on_switch_timer_timeout"]
+[connection signal="timeout" from="Timers/DashCooldown" to="." method="_on_dash_cooldown_timeout"]

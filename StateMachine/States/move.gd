@@ -6,6 +6,8 @@ func physics_update(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("switch"):
 		finished.emit(SWITCH)
+	elif Input.is_action_just_pressed("dash"):
+		finished.emit(DASH)
 
 
 func handle_movement() -> void:

@@ -8,6 +8,7 @@ const initial_state: String = "Move"
 @export var max_health: int = 10
 @export var max_mana: int = 100
 @export var speed: float = 300.0
+@export var dash_force: float = 700.0
 @export var moveset: GDScript
 @export var damage: int = 1
 @export var attack_active: float = 0.3
