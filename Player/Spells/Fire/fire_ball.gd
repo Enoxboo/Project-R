@@ -10,8 +10,7 @@ var damage: int = 1
 var fireball_stun: float = 0.2
 
 func _on_area_entered(area: Area2D) -> void:
-	print("brulé")
-	area.get_parent().sprite.modulate = "RED"
+	area.burn(3, 1)
 
 func cast(player) -> bool:
 	if not super.cast(player):
