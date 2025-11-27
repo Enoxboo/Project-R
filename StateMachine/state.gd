@@ -7,8 +7,12 @@ signal finished(next_state_path: String, data: Dictionary)
 
 const MOVE = "Move"
 const SWITCH = "Switch"
+const DASH = "Dash"
+
+const HITSTUN = "Hitstun"
 
 const CHASE = "Chase"
+const ATTACK_PROJECTILE = "AttackProjectile"
 
 var parent: CharacterBody2D
 
