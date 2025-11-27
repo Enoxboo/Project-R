@@ -46,7 +46,6 @@ func _input(event: InputEvent) -> void:
 
 func change_companion(new_companion: Resource) -> void:
 	companion_data = new_companion
-	print(companion_data)
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
