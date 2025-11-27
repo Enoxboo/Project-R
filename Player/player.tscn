@@ -69,16 +69,14 @@ shape = SubResource("RectangleShape2D_fhl08")
 
 [node name="Timers" type="Node" parent="."]
 
-[node name="AttackActive" type="Timer" parent="Timers"]
-
-[node name="AttackRest" type="Timer" parent="Timers"]
-
 [node name="KnockbackTimer" type="Timer" parent="Timers"]
 one_shot = true
 
 [node name="StunTimer" type="Timer" parent="Timers"]
 one_shot = true
 
-[node name="Spell1Timer" type="Timer" parent="Timers"]
+[node name="Spell1Cooldown" type="Timer" parent="Timers"]
+one_shot = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Timers/Spell1Cooldown" to="." method="_on_spell_1_cooldown_timeout"]

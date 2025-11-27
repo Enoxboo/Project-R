@@ -8,11 +8,9 @@ const MAIN_DATA = preload("uid://dsefs1fellje")
 @onready var hitbox: Area2D = $Hitbox
 @onready var hitbox_sprite: Sprite2D = $Hitbox/HitboxSprite
 @onready var hurtbox: Area2D = $Hurtbox
-@onready var attack_active: Timer = $Timers/AttackActive
-@onready var attack_rest: Timer = $Timers/AttackRest
 @onready var knockback_timer: Timer = $Timers/KnockbackTimer
 @onready var stun_timer: Timer = $Timers/StunTimer
-@onready var spell_1_timer: Timer = $Timers/Spell1Timer
+@onready var spell_1_cooldown: Timer = $Timers/Spell1Cooldown
 
 var data: PlayerData = MAIN_DATA
 var moveset_instance: Moveset = data.moveset.new()
@@ -53,3 +51,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	var direction: Vector2 = (area.global_position - global_position).normalized()
 	if area.has_method("take_damage"):
 		area.take_damage(data.damage, direction, data.stun_duration)
+
+
+func _on_spell_1_cooldown_timeout() -> void:
+	can_spell_1 = true
