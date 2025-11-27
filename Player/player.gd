@@ -12,6 +12,7 @@ const MAIN_DATA = preload("uid://dsefs1fellje")
 @onready var attack_rest: Timer = $Timers/AttackRest
 @onready var knockback_timer: Timer = $Timers/KnockbackTimer
 @onready var stun_timer: Timer = $Timers/StunTimer
+@onready var spell_1_timer: Timer = $Timers/Spell1Timer
 
 var data: PlayerData = MAIN_DATA
 var moveset_instance: Moveset = data.moveset.new()

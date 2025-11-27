@@ -5,6 +5,7 @@ class_name Spell
 @onready var timer: Timer = $Timer
 
 var active_time: float = 3.0
+var cooldown_time: float = 5.0
 var speed: float = 200.0
 var mana_cost: int = 5
 

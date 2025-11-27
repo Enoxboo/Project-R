@@ -8,6 +8,7 @@ const fireball_time: float = 10.0
 const ally: bool = true
 var damage: int = 1
 var fireball_stun: float = 0.2
+var cooldown: float = 3.0
 
 func _on_area_entered(area: Area2D) -> void:
 	area.burn(3, 1)
@@ -15,7 +16,7 @@ func _on_area_entered(area: Area2D) -> void:
 func cast(player) -> bool:
 	if not super.cast(player):
 		return false
-
+	
 	player.current_mana -= mana_cost
 	print(player.current_mana)
 
