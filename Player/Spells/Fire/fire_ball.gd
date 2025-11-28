@@ -20,7 +20,7 @@ func cast(player) -> bool:
 
 	player.current_mana -= mana_cost
 	print(player.current_mana)
-
+	
 	var proj = ProjectileHelper.throw(player, FIRE, size, fireball_speed, fireball_time, ally, damage, fireball_stun, true)
 	proj.area_2d.area_entered.connect(_on_area_entered)
 

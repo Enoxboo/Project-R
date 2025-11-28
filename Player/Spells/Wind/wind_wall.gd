@@ -22,7 +22,5 @@ func cast(player) -> bool:
 
 	var proj = ProjectileHelper.throw(player, WIND, size, windwall_speed, windwall_time, ally, damage, windwall_stun, false)
 	proj.area_2d.area_entered.connect(_on_area_entered)
-	print(proj.area_2d.collision_layer)
-	print(proj.area_2d.collision_mask)
-
+	
 	return true

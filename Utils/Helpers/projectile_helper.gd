@@ -15,6 +15,7 @@ static func throw(parent, sprite, size, speed, time, is_ally, damage, stun, is_a
 	proj.global_position = parent.global_position
 	target = parent.get_global_mouse_position() if is_ally else parent.player.global_position
 	proj.direction = (target - parent.global_position).normalized()
+	proj.look_at(proj.position + proj.direction)
 	proj.is_attack = is_attack
 	parent.get_parent().add_child(proj)
 	proj.set_collision_size(size)
