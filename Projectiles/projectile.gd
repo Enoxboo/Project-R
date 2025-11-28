@@ -53,10 +53,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if timer.is_stopped():
 		queue_free()
+		
 
 	position += direction * speed * delta
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage") and is_attack:
 		area.take_damage(damage, direction, stun_duration)
+	queue_free()
+
+func apply_spell():
+	pass
