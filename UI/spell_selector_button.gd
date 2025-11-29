@@ -18,6 +18,7 @@ func _ready() -> void:
 	button_spell_1.text = spell_1_name
 	button_spell_2.text = spell_2_name
 
+
 func _on_button_spell_1_button_down() -> void:
 	player.spell1_instance = SPELLS[spell_1_name].new()
 	player.spell_1_cooldown.wait_time = player.spell1_instance.cooldown

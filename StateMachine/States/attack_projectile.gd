@@ -4,8 +4,10 @@ func enter(_data := { }) -> void:
 	await attack()
 	finished.emit(CHASE)
 
+
 func physics_update(_delta: float) -> void:
 	parent.move_and_slide()
+
 
 func attack() -> void:
 	parent.can_attack = false

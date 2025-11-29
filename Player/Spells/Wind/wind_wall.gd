@@ -10,6 +10,7 @@ var windwall_stun: float = 0
 var cooldown: float = 3.0
 var size: Vector2 = Vector2(6.0, 30.0)
 
+
 func _on_area_entered(area: Area2D) -> void:
 	if area.owner.is_in_group("Projectile"):
 		area.owner.queue_free()
@@ -24,5 +25,5 @@ func cast(player) -> bool:
 
 	var proj = ProjectileHelper.throw(player, WIND, size, windwall_speed, windwall_time, ally, damage, windwall_stun, false, "Wind")
 	proj.area_2d.area_entered.connect(_on_area_entered)
-	
+
 	return true

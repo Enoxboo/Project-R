@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2qji8hvgq83i" path="res://Player/_Sprites/fire.png" id="1_lnlkt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inm8w"]
+size = Vector2(40, 56)
 
 [node name="Spells" type="Area2D"]
 collision_layer = 16
@@ -18,5 +19,3 @@ texture = ExtResource("1_lnlkt")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

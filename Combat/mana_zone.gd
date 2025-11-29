@@ -4,6 +4,7 @@ extends Area2D
 
 var element: String
 
+
 func _ready() -> void:
 	if element == "Fire":
 		sprite.modulate = "Red"
