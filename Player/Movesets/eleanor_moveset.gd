@@ -11,7 +11,7 @@ var size: Vector2 = Vector2(10.0, 2.0)
 
 
 func _perform_attack(player: Player) -> void:
-	ProjectileHelper.throw(player, ARROW, size, arrow_speed, arrow_time, ally, damage, arrow_stun, true)
+	ProjectileHelper.throw(player, ARROW, size, arrow_speed, arrow_time, ally, damage, arrow_stun, true, null)
 
 
 func _end_attack(_player: Player) -> void:

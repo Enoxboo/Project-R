@@ -17,7 +17,7 @@ radius = 17.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrovn"]
 radius = 15.0
 
-[node name="BaseEnemy" type="CharacterBody2D"]
+[node name="BaseEnemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 32
 script = ExtResource("1_hrovn")
 data = ExtResource("2_o6yar")

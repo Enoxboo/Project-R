@@ -38,7 +38,7 @@ func _ready() -> void:
 		area_2d.collision_mask = PLAYER_HURTBOX
 	elif is_ally and is_attack:
 		area_2d.collision_layer = PLAYER_PROJECTILE
-		area_2d.collision_mask = ENEMY_HURTBOX
+		area_2d.collision_mask = ENEMY_HURTBOX + SPELL_UTILITY
 	elif not is_ally and not is_attack:
 		area_2d.collision_layer = SPELL_UTILITY
 		area_2d.collision_mask = PLAYER_PROJECTILE
@@ -58,9 +58,8 @@ func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.has_method("take_damage") and is_attack:
+	if area.owner.is_in_group("Enemy") and is_attack:
 		area.take_damage(damage, direction, stun_duration)
-	queue_free()
 
 func apply_spell():
 	pass

@@ -11,7 +11,9 @@ var cooldown: float = 3.0
 var size: Vector2 = Vector2(6.0, 30.0)
 
 func _on_area_entered(area: Area2D) -> void:
-	area.owner.queue_free()
+	if area.owner.is_in_group("Projectile"):
+		area.owner.queue_free()
+
 
 func cast(player) -> bool:
 	if not super.cast(player):
@@ -20,7 +22,7 @@ func cast(player) -> bool:
 	player.current_mana -= mana_cost
 	print(player.current_mana)
 
-	var proj = ProjectileHelper.throw(player, WIND, size, windwall_speed, windwall_time, ally, damage, windwall_stun, false)
+	var proj = ProjectileHelper.throw(player, WIND, size, windwall_speed, windwall_time, ally, damage, windwall_stun, false, "Wind")
 	proj.area_2d.area_entered.connect(_on_area_entered)
 	
 	return true

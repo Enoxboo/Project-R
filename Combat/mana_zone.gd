@@ -10,7 +10,12 @@ func _ready() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	area.burn(3, 1)
+	if area.owner.is_in_group("Enemy"):
+		area.burn(3, 1)
+	elif area.owner.is_in_group("SpellFire"):
+		pass
+	elif area.owner.is_in_group("SpellWind"):
+		pass
 
 
 func _on_timer_timeout() -> void:
