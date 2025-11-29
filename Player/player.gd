@@ -11,6 +11,7 @@ const MAIN_DATA = preload("uid://dsefs1fellje")
 @onready var knockback_timer: Timer = $Timers/KnockbackTimer
 @onready var stun_timer: Timer = $Timers/StunTimer
 @onready var spell_1_cooldown: Timer = $Timers/Spell1Cooldown
+@onready var spell_2_cooldown: Timer = $Timers/Spell2Cooldown
 @onready var switch_timer: Timer = $Timers/SwitchTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
 
@@ -25,6 +26,7 @@ var can_dash = true
 var can_switch = true
 var companion_data: Resource = null
 var spell1_instance
+var spell2_instance
 var current_mana: float
 
 
@@ -60,6 +62,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 
 func _on_spell_1_cooldown_timeout() -> void:
 	can_spell_1 = true
+
+
+func _on_spell_2_cooldown_timeout() -> void:
+	can_spell_2 = true
 
 
 func _on_switch_timer_timeout() -> void:

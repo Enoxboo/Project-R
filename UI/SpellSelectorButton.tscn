@@ -17,4 +17,13 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "Spell1"
 
+[node name="ButtonSpell2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = -1.0
+offset_right = 112.0
+offset_bottom = 30.0
+text = "Spell2"
+
 [connection signal="button_down" from="ButtonSpell1" to="." method="_on_button_spell_1_button_down"]
+[connection signal="button_down" from="ButtonSpell2" to="." method="_on_button_spell_2_button_down"]

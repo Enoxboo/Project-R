@@ -50,11 +50,12 @@ position = Vector2(-283, -137)
 data = ExtResource("6_eujtv")
 
 [node name="SpellSelectorButton" parent="." instance=ExtResource("7_t7hqy")]
-offset_left = 254.0
-offset_top = -165.0
-offset_right = 254.0
-offset_bottom = -165.0
-spell_name = "fireball"
+offset_left = 201.0
+offset_top = -168.0
+offset_right = 201.0
+offset_bottom = -168.0
+spell_1_name = "fireball"
+spell_2_name = "windwall"
 
 [node name="Archer" parent="." instance=ExtResource("6_t7hqy")]
 position = Vector2(178, 44)
