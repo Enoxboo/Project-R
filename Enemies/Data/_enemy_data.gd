@@ -2,7 +2,7 @@ extends Resource
 
 class_name EnemyData
 
-const ally: bool = false
+const ALLY: bool = false
 
 @export var sprite: Texture2D
 @export var speed: float = 100.0
@@ -16,3 +16,5 @@ const ally: bool = false
 @export var projectile_speed: float = 1000.0
 @export var projectile_time: float = 10.0
 @export var projectile_stun: float = 1.0
+@export var knockback_force: float = 100.0
+@export var knockback_time: float = 0.1

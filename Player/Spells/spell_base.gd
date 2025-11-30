@@ -2,11 +2,19 @@ extends Area2D
 
 class_name Spell
 
+@warning_ignore("unused_signal")
+signal mana_changed()
+
+
 @onready var timer: Timer = $Timer
 
-var active_time: float = 3.0
-var cooldown_time: float = 5.0
-var speed: float = 200.0
+var speed: float = 500.0
+var active_time: float = 1.0
+var ally: bool = true
+var damage: int = 1
+var stun_time: float = 0.2
+var cooldown: float = 3.0
+var size: Vector2 = Vector2(10.0, 14.0)
 var mana_cost: int = 5
 
 

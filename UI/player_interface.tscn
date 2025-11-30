@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbox2nfq1xt51"]
+
+[ext_resource type="Script" uid="uid://bydbp0uewpe3c" path="res://UI/player_interface.gd" id="1_ysi8v"]
+
+[node name="PlayerInterface" type="CanvasLayer"]
+script = ExtResource("1_ysi8v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Health:"
+
+[node name="ManaLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mana:"

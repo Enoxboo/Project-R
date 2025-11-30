@@ -2,13 +2,22 @@ extends Spell
 
 const WIND = preload("uid://c2vcprt14i77g")
 
-var windwall_speed: float = 50.0
-var windwall_time: float = 10.0
-var ally: bool = true
-var damage: int = 0
-var windwall_stun: float = 0
-var cooldown: float = 3.0
-var size: Vector2 = Vector2(6.0, 30.0)
+
+func _init() -> void:
+	speed = 50.0
+	active_time = 10.0
+	damage = 0
+	stun_time = 0
+	size = Vector2(6.0, 30.0)
+
+
+func _ready() -> void:
+	speed = 50.0
+	active_time = 10.0
+	damage = 0
+	stun_time = 0
+	size = Vector2(6.0, 30.0)
+	super._ready()
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -21,9 +30,9 @@ func cast(player) -> bool:
 		return false
 
 	player.current_mana -= mana_cost
-	print(player.current_mana)
+	emit_signal("mana_changed")
 
-	var proj = ProjectileHelper.throw(player, WIND, size, windwall_speed, windwall_time, ally, damage, windwall_stun, false, "Wind")
+	var proj = ProjectileHelper.throw(player, WIND, size, speed, active_time, ally, damage, stun_time, false, "Wind")
 	proj.area_2d.area_entered.connect(_on_area_entered)
 
 	return true

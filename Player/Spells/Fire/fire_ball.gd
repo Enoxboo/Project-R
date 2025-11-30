@@ -3,13 +3,13 @@ extends Spell
 const FIRE = preload("uid://b2qji8hvgq83i")
 const MANA_ZONE = preload("uid://c67wryal1n8u2")
 
-var fireball_speed: float = 500.0
-var fireball_time: float = 1.0
-var ally: bool = true
-var damage: int = 1
-var fireball_stun: float = 0.2
-var cooldown: float = 3.0
-var size: Vector2 = Vector2(10.0, 14.0)
+
+func _init() -> void:
+	speed = 500.0
+	active_time = 1.0
+	damage = 1
+	stun_time = 0.2
+	size = Vector2(10.0, 14.0)
 
 
 func _on_area_entered(area: Area2D, proj: Projectile) -> void:
@@ -41,9 +41,9 @@ func cast(player) -> bool:
 		return false
 
 	player.current_mana -= mana_cost
-	print(player.current_mana)
+	emit_signal("mana_changed")
 
-	var proj = ProjectileHelper.throw(player, FIRE, size, fireball_speed, fireball_time, ally, damage, fireball_stun, true, "Fire")
+	var proj = ProjectileHelper.throw(player, FIRE, size, speed, active_time, ally, damage, stun_time, true, "Fire")
 	proj.area_2d.area_entered.connect(func(area): _on_area_entered(area, proj))
 	proj.timer.timeout.connect(func(): apply_spell(proj))
 

@@ -2,8 +2,7 @@ extends State
 
 var data: Dictionary
 
-const knocback_force: float = 100.0
-const knockback_time: float = 0.1
+
 var is_stunned = false
 
 
@@ -12,8 +11,8 @@ func enter(new_data := { }) -> void:
 	parent.knockback_timer.stop()
 	parent.stun_timer.stop()
 
-	parent.velocity = data.direction * knocback_force
-	parent.knockback_timer.wait_time = knockback_time
+	parent.velocity = data.direction * parent.data.knockback_force
+	parent.knockback_timer.wait_time = parent.data.knockback_time
 	parent.knockback_timer.start()
 
 	await parent.knockback_timer.timeout

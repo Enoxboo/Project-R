@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+signal mana_changed
+
 const MAIN_DATA = preload("uid://dsefs1fellje")
 
 @onready var sprite: Sprite2D = $Sprite
@@ -59,10 +61,11 @@ func _on_spell_selected(spell_name: String):
 	if not spell1_instance:
 		spell1_instance = SpellManager.SPELLS[spell_name].new()
 		spell_1_cooldown.wait_time = spell1_instance.cooldown
-		print(typeof(spell1_instance))
+		spell1_instance.mana_changed.connect(_on_mana_changed)
 	elif not spell2_instance:
 		spell2_instance = SpellManager.SPELLS[spell_name].new()
 		spell_2_cooldown.wait_time = spell2_instance.cooldown
+		spell2_instance.mana_changed.connect(_on_mana_changed)
 	else:
 		print("No more spell slot")
 
@@ -86,3 +89,6 @@ func _on_switch_timer_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
+
+func _on_mana_changed() -> void:
+	emit_signal("mana_changed")

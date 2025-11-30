@@ -20,5 +20,5 @@ func dash() -> void:
 	if not input_direction:
 		input_direction = (parent.get_global_mouse_position() - parent.global_position).normalized()
 	parent.velocity = input_direction * parent.data.dash_force
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(parent.data.dash_time).timeout
 	parent.hurtbox.monitorable = true

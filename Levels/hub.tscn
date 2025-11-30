@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cen6tc4wk5scj"]
+[gd_scene load_steps=10 format=4 uid="uid://cen6tc4wk5scj"]
 
 [ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Art/scene.png" id="1_8u7dw"]
 [ext_resource type="PackedScene" uid="uid://damlylql1l7of" path="res://Player/player.tscn" id="2_kww43"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://davvempunmoqd" path="res://Player/Data/eleanor_data.tres" id="4_cylkk"]
 [ext_resource type="PackedScene" uid="uid://dvdjud235dagf" path="res://World/fire_camp.tscn" id="5_oxvbc"]
 [ext_resource type="PackedScene" uid="uid://bjcinwkgs3lnc" path="res://World/portal.tscn" id="6_cx8s8"]
+[ext_resource type="PackedScene" uid="uid://bbox2nfq1xt51" path="res://UI/player_interface.tscn" id="7_68pel"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o06ir"]
 texture = ExtResource("1_8u7dw")
@@ -55,3 +56,5 @@ collision_layer = 0
 
 [node name="Portal" parent="." instance=ExtResource("6_cx8s8")]
 position = Vector2(304, 1)
+
+[node name="PlayerInterface" parent="." instance=ExtResource("7_68pel")]
