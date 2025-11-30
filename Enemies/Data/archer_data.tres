@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://uponwqt1ncca" path="res://Projectiles/arrow.png" id="1_04efs"]
 [ext_resource type="Script" uid="uid://b4i58ugq5b8c8" path="res://Enemies/Data/_enemy_data.gd" id="1_jmbjd"]
-[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="3_t1q8a"]
+[ext_resource type="Texture2D" uid="uid://bgqbtlefarmow" path="res://Enemies/_Sprites/cercle.png" id="3_04efs"]
 
 [resource]
 script = ExtResource("1_jmbjd")
-sprite = ExtResource("3_t1q8a")
+sprite = ExtResource("3_04efs")
 initial_state = "Chase"
 attack_sprite = ExtResource("1_04efs")
 attack_range = 2000.0

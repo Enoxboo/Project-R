@@ -31,10 +31,10 @@ var current_mana: float
 
 
 func _ready() -> void:
-	current_health = data.max_health
-	current_mana = data.max_mana
-	print(current_health)
-
+	current_health = GameData.player_health
+	current_mana = GameData.player_mana
+	spell1_instance = GameData.equipped_spell_1
+	spell2_instance = GameData.equipped_spell_2
 
 func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
@@ -53,6 +53,17 @@ func _input(event: InputEvent) -> void:
 func change_companion(new_companion: Resource) -> void:
 	companion_data = new_companion
 
+
+func _on_spell_selected(spell_name: String):
+	if not spell1_instance:
+		spell1_instance = SpellManager.SPELLS[spell_name].new()
+		spell_1_cooldown.wait_time = spell1_instance.cooldown
+		print(typeof(spell1_instance))
+	elif not spell2_instance:
+		spell2_instance = SpellManager.SPELLS[spell_name].new()
+		spell_2_cooldown.wait_time = spell2_instance.cooldown
+	else:
+		print("No more spell slot")
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	var direction: Vector2 = (area.global_position - global_position).normalized()

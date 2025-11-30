@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvdjud235dagf"]
+
+[ext_resource type="Texture2D" uid="uid://ot6j0fwxmmeq" path="res://Pickups/fire_camp.png" id="1_0o8fo"]
+[ext_resource type="Script" uid="uid://c221jeywkyhjr" path="res://Pickups/fire_camp.gd" id="1_qwq26"]
+[ext_resource type="PackedScene" uid="uid://dqa0fclq0li1s" path="res://Pickups/spell_selector.tscn" id="3_sv3vs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwq26"]
+atlas = ExtResource("1_0o8fo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv3vs"]
+atlas = ExtResource("1_0o8fo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwok1"]
+atlas = ExtResource("1_0o8fo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3u0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwq26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv3vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwok1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn3u1"]
+size = Vector2(32, 32)
+
+[node name="FireCamp" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_qwq26")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a3u0g")
+autoplay = "default"
+frame_progress = 0.22610362
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hn3u1")
+
+[node name="SpellSelector" parent="." instance=ExtResource("3_sv3vs")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

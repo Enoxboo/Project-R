@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://dki71e3o8i881" path="res://StateMachine/States/hitstun.gd" id="6_00tjw"]
 [ext_resource type="Script" uid="uid://bng853sk1p60f" path="res://StateMachine/States/switch.gd" id="6_fhl08"]
 [ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Combat/hurtbox.gd" id="6_od3ui"]
-[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="6_vtle1"]
 [ext_resource type="Script" uid="uid://cwd20fvs5i4rb" path="res://StateMachine/States/dash.gd" id="7_00tjw"]
+[ext_resource type="Texture2D" uid="uid://rjwu7v2jtto5" path="res://Player/_Sprites/attack.png" id="9_00tjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(32, 32)
@@ -17,7 +17,7 @@ size = Vector2(32, 32)
 size = Vector2(30, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhl08"]
-size = Vector2(50, 50)
+size = Vector2(48, 32)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
@@ -59,7 +59,6 @@ shape = SubResource("RectangleShape2D_vtle1")
 debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(40, 0)
 collision_layer = 8
 collision_mask = 80
 monitoring = false
@@ -67,9 +66,10 @@ monitorable = false
 
 [node name="HitboxSprite" type="Sprite2D" parent="Hitbox"]
 visible = false
-texture = ExtResource("6_vtle1")
+texture = ExtResource("9_00tjw")
 
 [node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 shape = SubResource("RectangleShape2D_fhl08")
 
 [node name="Timers" type="Node" parent="."]
