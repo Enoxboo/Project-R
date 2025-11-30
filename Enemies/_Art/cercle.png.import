@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rjwu7v2jtto5"
-path="res://.godot/imported/attack.png-b37266baa457a58e36edd525caa2a3cd.ctex"
+uid="uid://bgqbtlefarmow"
+path="res://.godot/imported/cercle.png-73fd95bcf76aecda32300d8e49860da6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/_Sprites/attack.png"
-dest_files=["res://.godot/imported/attack.png-b37266baa457a58e36edd525caa2a3cd.ctex"]
+source_file="res://Enemies/_Art/cercle.png"
+dest_files=["res://.godot/imported/cercle.png-73fd95bcf76aecda32300d8e49860da6.ctex"]
 
 [params]
 

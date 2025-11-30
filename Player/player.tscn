@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://damlylql1l7of"]
 
 [ext_resource type="Script" uid="uid://cvwoife8aauxw" path="res://Player/player.gd" id="1_4ntmi"]
-[ext_resource type="Texture2D" uid="uid://d0t3xhui75wfh" path="res://Player/_Sprites/square.png" id="1_l8h54"]
-[ext_resource type="Script" uid="uid://bkg8rfh1hctco" path="res://StateMachine/state_machine.gd" id="4_k53q1"]
-[ext_resource type="Script" uid="uid://bm16kmhys2frc" path="res://StateMachine/States/move.gd" id="5_fhl08"]
-[ext_resource type="Script" uid="uid://dki71e3o8i881" path="res://StateMachine/States/hitstun.gd" id="6_00tjw"]
-[ext_resource type="Script" uid="uid://bng853sk1p60f" path="res://StateMachine/States/switch.gd" id="6_fhl08"]
+[ext_resource type="Texture2D" uid="uid://d0t3xhui75wfh" path="res://Player/_Art/square.png" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://bkg8rfh1hctco" path="res://Utils/StateMachine/state_machine.gd" id="4_k53q1"]
+[ext_resource type="Script" uid="uid://bm16kmhys2frc" path="res://Utils/StateMachine/States/move.gd" id="5_fhl08"]
+[ext_resource type="Script" uid="uid://dki71e3o8i881" path="res://Utils/StateMachine/States/hitstun.gd" id="6_00tjw"]
+[ext_resource type="Script" uid="uid://bng853sk1p60f" path="res://Utils/StateMachine/States/switch.gd" id="6_fhl08"]
 [ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Combat/hurtbox.gd" id="6_od3ui"]
-[ext_resource type="Script" uid="uid://cwd20fvs5i4rb" path="res://StateMachine/States/dash.gd" id="7_00tjw"]
-[ext_resource type="Texture2D" uid="uid://rjwu7v2jtto5" path="res://Player/_Sprites/attack.png" id="9_00tjw"]
+[ext_resource type="Script" uid="uid://cwd20fvs5i4rb" path="res://Utils/StateMachine/States/dash.gd" id="7_00tjw"]
+[ext_resource type="Texture2D" uid="uid://rjwu7v2jtto5" path="res://Player/_Art/attack.png" id="9_00tjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(32, 32)

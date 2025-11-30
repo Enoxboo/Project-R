@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=4 uid="uid://bvnkyljxinm4e"]
 
-[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="1_0ltqd"]
+[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Art/scene.png" id="1_0ltqd"]
 [ext_resource type="PackedScene" uid="uid://damlylql1l7of" path="res://Player/player.tscn" id="2_o06ir"]
-[ext_resource type="PackedScene" uid="uid://cy4rgpb483u7c" path="res://Pickups/companion_placeholder.tscn" id="5_o45qy"]
+[ext_resource type="PackedScene" uid="uid://cy4rgpb483u7c" path="res://World/companion_placeholder.tscn" id="5_o45qy"]
 [ext_resource type="Resource" uid="uid://davvempunmoqd" path="res://Player/Data/eleanor_data.tres" id="6_eujtv"]
 [ext_resource type="PackedScene" uid="uid://cmgfukmlgbemc" path="res://Enemies/archer.tscn" id="6_t7hqy"]
-[ext_resource type="PackedScene" uid="uid://b6kbs38w4o666" path="res://UI/SpellSelectorButton.tscn" id="7_t7hqy"]
+[ext_resource type="PackedScene" path="res://UI/SpellSelectorButton.tscn" id="7_t7hqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o06ir"]
 texture = ExtResource("1_0ltqd")

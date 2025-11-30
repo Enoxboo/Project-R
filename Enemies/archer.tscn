@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmgfukmlgbemc"]
 
 [ext_resource type="PackedScene" uid="uid://syt0a8y6s0xu" path="res://Enemies/base_enemy.tscn" id="1_ikhma"]
-[ext_resource type="Script" uid="uid://4sltsokqf5fd" path="res://StateMachine/States/attack_projectile.gd" id="2_iauhp"]
+[ext_resource type="Script" uid="uid://4sltsokqf5fd" path="res://Utils/StateMachine/States/attack_projectile.gd" id="2_iauhp"]
 [ext_resource type="Resource" uid="uid://bbitfa3s8kct5" path="res://Enemies/Data/archer_data.tres" id="2_m44sb"]
 
 [node name="Archer" instance=ExtResource("1_ikhma")]

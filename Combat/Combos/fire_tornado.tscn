@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://s5ymxwbjo312"]
 
-[ext_resource type="PackedScene" uid="uid://coxir11tq0h7h" path="res://Player/Spells/Spells.tscn" id="1_jr34y"]
-[ext_resource type="Script" uid="uid://bdumenpy5wkg7" path="res://Player/Combos/fire_tornado.gd" id="2_nws6n"]
+[ext_resource type="PackedScene" uid="uid://coxir11tq0h7h" path="res://Player/Spells/spell_base.tscn" id="1_jr34y"]
+[ext_resource type="Script" uid="uid://bdumenpy5wkg7" path="res://Combat/Combos/fire_tornado.gd" id="2_nws6n"]
 
 [node name="FireTornado" instance=ExtResource("1_jr34y")]
 script = ExtResource("2_nws6n")

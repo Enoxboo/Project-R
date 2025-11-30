@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx22x8do7v52x"
-path="res://.godot/imported/mana.png-058bca1fd97ede60bb444e756a02ea28.ctex"
+uid="uid://hcq66343gceq"
+path="res://.godot/imported/scene.png-60e984b9cb6f910e440af2f0842c79ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/_Sprites/mana.png"
-dest_files=["res://.godot/imported/mana.png-058bca1fd97ede60bb444e756a02ea28.ctex"]
+source_file="res://Levels/_Art/scene.png"
+dest_files=["res://.godot/imported/scene.png-60e984b9cb6f910e440af2f0842c79ea.ctex"]
 
 [params]
 

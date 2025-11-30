@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://bbitfa3s8kct5"]
 
-[ext_resource type="Texture2D" uid="uid://uponwqt1ncca" path="res://Projectiles/arrow.png" id="1_04efs"]
+[ext_resource type="Texture2D" uid="uid://uponwqt1ncca" path="res://Projectiles/_Art/arrow.png" id="1_04efs"]
 [ext_resource type="Script" uid="uid://b4i58ugq5b8c8" path="res://Enemies/Data/_enemy_data.gd" id="1_jmbjd"]
-[ext_resource type="Texture2D" uid="uid://bgqbtlefarmow" path="res://Enemies/_Sprites/cercle.png" id="3_04efs"]
+[ext_resource type="Texture2D" uid="uid://bgqbtlefarmow" path="res://Enemies/_Art/cercle.png" id="3_04efs"]
 
 [resource]
 script = ExtResource("1_jmbjd")

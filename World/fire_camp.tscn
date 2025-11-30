@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvdjud235dagf"]
 
-[ext_resource type="Texture2D" uid="uid://ot6j0fwxmmeq" path="res://Pickups/fire_camp.png" id="1_0o8fo"]
-[ext_resource type="Script" uid="uid://c221jeywkyhjr" path="res://Pickups/fire_camp.gd" id="1_qwq26"]
-[ext_resource type="PackedScene" uid="uid://dqa0fclq0li1s" path="res://Pickups/spell_selector.tscn" id="3_sv3vs"]
+[ext_resource type="Texture2D" uid="uid://ot6j0fwxmmeq" path="res://World/_Art/fire_camp.png" id="1_0o8fo"]
+[ext_resource type="Script" uid="uid://c221jeywkyhjr" path="res://World/fire_camp.gd" id="1_qwq26"]
+[ext_resource type="PackedScene" uid="uid://dqa0fclq0li1s" path="res://UI/SpellSelector/spell_selector.tscn" id="3_sv3vs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwq26"]
 atlas = ExtResource("1_0o8fo")

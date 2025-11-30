@@ -30,12 +30,14 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Autoload/": "yellow",
+"res://Combat/": "orange",
 "res://Enemies/": "red",
 "res://Levels/": "green",
 "res://Player/": "purple",
-"res://Projectiles/": "blue",
-"res://StateMachine/": "gray",
-"res://UI/": "pink"
+"res://Projectiles/": "teal",
+"res://UI/": "pink",
+"res://Utils/": "blue",
+"res://World/": "yellow"
 }
 
 [global_group]

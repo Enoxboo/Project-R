@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dqa0fclq0li1s"]
 
-[ext_resource type="Script" uid="uid://cy00xxlnci50a" path="res://Pickups/panel.gd" id="1_wmmj5"]
+[ext_resource type="Script" uid="uid://cy00xxlnci50a" path="res://UI/SpellSelector/spell_selector.gd" id="1_wmmj5"]
 
 [node name="SpellSelector" type="CanvasLayer"]
 script = ExtResource("1_wmmj5")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uponwqt1ncca"
-path="res://.godot/imported/arrow.png-d6b44294ef870d2a23b991082b807e55.ctex"
+uid="uid://dx22x8do7v52x"
+path="res://.godot/imported/mana.png-7d81093c11b76b6c4117ca0dd40fbbd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Projectiles/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-d6b44294ef870d2a23b991082b807e55.ctex"]
+source_file="res://Player/_Art/mana.png"
+dest_files=["res://.godot/imported/mana.png-7d81093c11b76b6c4117ca0dd40fbbd9.ctex"]
 
 [params]
 

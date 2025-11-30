@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://b07hyx7reh3rk"]
 
-[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="1_us7r2"]
+[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Art/scene.png" id="1_us7r2"]
 [ext_resource type="PackedScene" uid="uid://damlylql1l7of" path="res://Player/player.tscn" id="2_axfqd"]
 [ext_resource type="PackedScene" uid="uid://cmgfukmlgbemc" path="res://Enemies/archer.tscn" id="3_n7yqm"]
 [ext_resource type="PackedScene" uid="uid://syt0a8y6s0xu" path="res://Enemies/base_enemy.tscn" id="4_xholh"]

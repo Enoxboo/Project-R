@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c67wryal1n8u2"]
 
-[ext_resource type="Script" uid="uid://bgy36hethhc41" path="res://Combat/mana_zone.gd" id="1_4akwi"]
-[ext_resource type="Texture2D" uid="uid://dx22x8do7v52x" path="res://Player/_Sprites/mana.png" id="2_hi7ij"]
+[ext_resource type="Script" uid="uid://bgy36hethhc41" path="res://Combat/ManaZones/mana_zone.gd" id="1_4akwi"]
+[ext_resource type="Texture2D" uid="uid://dx22x8do7v52x" path="res://Player/_Art/mana.png" id="2_hi7ij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fbgd"]
 size = Vector2(64, 64)
