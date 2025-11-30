@@ -35,6 +35,7 @@ func _ready() -> void:
 	current_mana = GameData.player_mana
 	spell1_instance = GameData.equipped_spell_1
 	spell2_instance = GameData.equipped_spell_2
+	companion_data = GameData.companion_data
 
 func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
