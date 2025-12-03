@@ -62,11 +62,9 @@ func _on_spell_selected(spell_name: String):
 	if not spell1_instance:
 		spell1_instance = SpellManager.SPELLS[spell_name].new()
 		spell_1_cooldown.wait_time = spell1_instance.cooldown
-		spell1_instance.mana_changed.connect(_on_mana_changed)
 	elif not spell2_instance:
 		spell2_instance = SpellManager.SPELLS[spell_name].new()
 		spell_2_cooldown.wait_time = spell2_instance.cooldown
-		spell2_instance.mana_changed.connect(_on_mana_changed)
 	else:
 		print("No more spell slot")
 

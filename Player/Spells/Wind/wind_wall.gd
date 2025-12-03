@@ -34,7 +34,7 @@ func cast(player) -> bool:
 		return false
 
 	player.current_mana -= mana_cost
-	emit_signal("mana_changed")
+	player.emit_signal("mana_changed")
 
 	var proj = ProjectileHelper.throw(player, WIND, size, speed, active_time, ally, Layers.PLAYER_SPELL_UTILITY, masks, damage, stun_time, false, "Wind")
 	proj.area_2d.area_entered.connect(_on_area_entered)

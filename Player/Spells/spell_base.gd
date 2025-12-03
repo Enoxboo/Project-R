@@ -2,8 +2,6 @@ extends Area2D
 
 class_name Spell
 
-@warning_ignore("unused_signal")
-signal mana_changed()
 
 @onready var timer: Timer = $Timer
 
