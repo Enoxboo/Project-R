@@ -2,8 +2,6 @@ extends Resource
 
 class_name PlayerData
 
-
-
 @export var sprite: Texture2D
 @export var max_health: int = 10
 @export var max_mana: int = 100

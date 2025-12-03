@@ -37,6 +37,7 @@ animations = [{
 size = Vector2(32, 32)
 
 [node name="FireCamp" type="Area2D"]
+collision_layer = 4096
 collision_mask = 2
 script = ExtResource("1_qwq26")
 
@@ -50,4 +51,4 @@ shape = SubResource("RectangleShape2D_hn3u1")
 
 [node name="SpellSelector" parent="." instance=ExtResource("3_sv3vs")]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

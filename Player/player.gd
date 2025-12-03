@@ -39,6 +39,7 @@ func _ready() -> void:
 	spell2_instance = GameData.equipped_spell_2
 	companion_data = GameData.companion_data
 
+
 func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	look_at(mouse_pos)
@@ -69,6 +70,7 @@ func _on_spell_selected(spell_name: String):
 	else:
 		print("No more spell slot")
 
+
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	var direction: Vector2 = (area.global_position - global_position).normalized()
 	if area.has_method("take_damage"):
@@ -89,6 +91,7 @@ func _on_switch_timer_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
+
 
 func _on_mana_changed() -> void:
 	emit_signal("mana_changed")

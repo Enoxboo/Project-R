@@ -3,7 +3,7 @@ extends State
 func physics_update(_delta: float) -> void:
 	if not parent.player:
 		return
-	
+
 	var target_position: Vector2 = parent.player.global_position
 	var self_position: Vector2 = parent.global_position
 	parent.velocity = (target_position - self_position).normalized() * parent.data.speed

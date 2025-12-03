@@ -20,7 +20,7 @@ size = Vector2(30, 30)
 size = Vector2(48, 32)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 2
+collision_mask = 2048
 script = ExtResource("1_4ntmi")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -50,8 +50,8 @@ script = ExtResource("7_00tjw")
 metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
 
 [node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 144
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("6_od3ui")
 
 [node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
@@ -59,8 +59,8 @@ shape = SubResource("RectangleShape2D_vtle1")
 debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 80
+collision_layer = 4
+collision_mask = 128
 monitoring = false
 monitorable = false
 

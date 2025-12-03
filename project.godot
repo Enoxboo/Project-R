@@ -16,7 +16,8 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
-GameData="*res://Utils/AutoLoad/GameData.gd"
+GameData="*res://Utils/AutoLoad/game_data.gd"
+Layers="*res://Utils/AutoLoad/layers.gd"
 
 [display]
 
@@ -105,17 +106,19 @@ pause={
 
 [layer_names]
 
-2d_physics/layer_1="Environment"
-2d_physics/layer_2="PlayerCollision"
-2d_physics/layer_3="PlayerHurtbox"
-2d_physics/layer_4="PlayerHitbox"
-2d_physics/layer_5="Mana"
-2d_physics/layer_6="EnemyCollision"
-2d_physics/layer_7="EnemyHurtbox"
-2d_physics/layer_8="EnemyHitbox"
-2d_physics/layer_9="PlayerProjectile"
-2d_physics/layer_12="SpellUtility"
-2d_physics/layer_13="EnemyProjectile"
+2d_physics/layer_1="PLAYER_BODY"
+2d_physics/layer_2="PLAYER_HURTBOX"
+2d_physics/layer_3="PLAYER_HITBOX"
+2d_physics/layer_4="PLAYER_PROJECTILE"
+2d_physics/layer_5="PLAYER_SPELL_OFFENSIVE"
+2d_physics/layer_6="PLAYER_SPELL_UTILITY"
+2d_physics/layer_7="ENEMY_BODY"
+2d_physics/layer_8="ENEMY_HURTBOX"
+2d_physics/layer_9="ENEMY_HITBOX"
+2d_physics/layer_10="ENEMY_PROJECTILE"
+2d_physics/layer_11="MANA_ZONE"
+2d_physics/layer_12="WALLS"
+2d_physics/layer_13="INTERACTABLES"
 
 [physics]
 

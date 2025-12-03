@@ -9,12 +9,6 @@ class_name Projectile
 const BASE_PROJECTILE = preload("uid://uponwqt1ncca")
 const PROJECTILE = preload("uid://cl3jxyqt80hkg")
 
-const PLAYER_HURTBOX = 4
-const PLAYER_PROJECTILE = 256
-const ENEMY_HURTBOX = 64
-const ENEMY_PROJECTILE = 4096
-const SPELL_UTILITY = 2048
-
 #Change them in the new instance
 var sprite_texture: Texture2D = BASE_PROJECTILE
 var is_ally: bool = true
@@ -34,18 +28,6 @@ func set_collision_size(new_size: Vector2) -> void:
 func _ready() -> void:
 	if sprite_texture:
 		sprite.texture = sprite_texture
-	if not is_ally and is_attack:
-		area_2d.collision_layer = ENEMY_PROJECTILE
-		area_2d.collision_mask = PLAYER_HURTBOX
-	elif is_ally and is_attack:
-		area_2d.collision_layer = PLAYER_PROJECTILE
-		area_2d.collision_mask = ENEMY_HURTBOX + SPELL_UTILITY
-	elif not is_ally and not is_attack:
-		area_2d.collision_layer = SPELL_UTILITY
-		area_2d.collision_mask = PLAYER_PROJECTILE
-	else:
-		area_2d.collision_layer = SPELL_UTILITY
-		area_2d.collision_mask = ENEMY_PROJECTILE
 
 	timer.wait_time = traveling_time
 	timer.start()

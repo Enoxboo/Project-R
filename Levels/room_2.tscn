@@ -27,8 +27,8 @@ separation = Vector2i(1, 1)
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 6, 6, 6, 6, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_hvjqn"]
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 34
+physics_layer_0/collision_layer = 2048
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_o06ir")
 
 [node name="Room2" type="Node2D"]
@@ -45,9 +45,13 @@ position = Vector2(-124, 9)
 
 [node name="Archer" parent="." instance=ExtResource("3_n7yqm")]
 position = Vector2(178, 44)
+collision_layer = 32
+collision_mask = 1
 
 [node name="Archer2" parent="." instance=ExtResource("3_n7yqm")]
 position = Vector2(188, -38)
+collision_layer = 32
+collision_mask = 1
 
 [node name="BaseEnemy" parent="." instance=ExtResource("4_xholh")]
 position = Vector2(67, 31)

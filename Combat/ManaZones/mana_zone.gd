@@ -11,11 +11,11 @@ func _ready() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.owner.is_in_group("Enemy"):
+	if area.get_parent().is_in_group("Enemy"):
 		area.burn(3, 1)
-	elif area.owner.is_in_group("SpellFire"):
+	elif area.get_parent().is_in_group("SpellFire"):
 		pass
-	elif area.owner.is_in_group("SpellWind"):
+	elif area.get_parent().is_in_group("SpellWind"):
 		pass
 
 

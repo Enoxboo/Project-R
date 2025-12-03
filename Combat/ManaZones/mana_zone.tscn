@@ -7,8 +7,8 @@
 size = Vector2(64, 64)
 
 [node name="ManaZone" type="Area2D"]
-collision_layer = 16
-collision_mask = 2368
+collision_layer = 1024
+collision_mask = 698
 script = ExtResource("1_4akwi")
 
 [node name="Sprite" type="Sprite2D" parent="."]

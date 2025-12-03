@@ -12,6 +12,7 @@ func take_damage(amount: int, direction: Vector2, stun_duration: float) -> void:
 	if get_parent().current_health == 0:
 		get_parent().queue_free()
 
+
 func burn(amount: int, damage: int):
 	for time in amount:
 		get_parent().sprite.modulate = "RED"

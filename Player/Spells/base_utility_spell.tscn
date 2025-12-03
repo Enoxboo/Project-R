@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dljiqy2104gie"]
+
+[ext_resource type="Script" uid="uid://br407bbjb8pho" path="res://Player/Spells/spell_base.gd" id="1_l8mok"]
+[ext_resource type="Texture2D" uid="uid://b2qji8hvgq83i" path="res://Player/_Art/fire.png" id="2_hbywn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inm8w"]
+size = Vector2(40, 56)
+
+[node name="Spells" type="Area2D"]
+collision_layer = 32
+collision_mask = 1592
+script = ExtResource("1_l8mok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_inm8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hbywn")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

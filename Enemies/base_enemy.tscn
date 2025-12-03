@@ -18,7 +18,8 @@ radius = 17.0
 radius = 15.0
 
 [node name="BaseEnemy" type="CharacterBody2D" groups=["Enemy"]]
-collision_layer = 32
+collision_layer = 64
+collision_mask = 2048
 script = ExtResource("1_hrovn")
 data = ExtResource("2_o6yar")
 
@@ -41,8 +42,8 @@ texture = ExtResource("1_hjege")
 shape = SubResource("CircleShape2D_5ailr")
 
 [node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 24
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("5_dqv1m")
 
 [node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
@@ -50,8 +51,8 @@ shape = SubResource("CircleShape2D_dq6ge")
 debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 128
-collision_mask = 20
+collision_layer = 256
+collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_hrovn")

@@ -3,10 +3,10 @@ class_name ProjectileHelper
 const PROJECTILE = preload("uid://cl3jxyqt80hkg")
 
 
-static func throw(parent, sprite, size, speed, time, is_ally, damage, stun, is_attack, element):
+static func throw(parent, sprite, size, speed, time, is_ally, layer_type: int, masks: Array, damage, stun, is_attack, element):
 	var proj = PROJECTILE.instantiate()
 	var target: Vector2
-	
+
 	proj.sprite_texture = sprite
 	proj.speed = speed
 	proj.traveling_time = time
@@ -20,8 +20,12 @@ static func throw(parent, sprite, size, speed, time, is_ally, damage, stun, is_a
 	proj.global_position = parent.global_position
 	parent.get_parent().add_child(proj)
 	proj.set_collision_size(size)
+	proj.area_2d.collision_layer = 0
+	proj.area_2d.collision_mask = 0
+	proj.area_2d.set_collision_layer_value(layer_type, true)
 	if element:
 		proj.add_to_group("Spell" + element)
-	else:
-		proj.add_to_group("Projectile")
+	for mask in masks:
+		proj.area_2d.set_collision_mask_value(mask, true)
+
 	return proj

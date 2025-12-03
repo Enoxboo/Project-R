@@ -2,7 +2,6 @@ extends State
 
 var data: Dictionary
 
-
 var is_stunned = false
 
 

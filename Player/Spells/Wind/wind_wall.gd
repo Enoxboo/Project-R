@@ -9,6 +9,7 @@ func _init() -> void:
 	damage = 0
 	stun_time = 0
 	size = Vector2(6.0, 30.0)
+	masks = [Layers.ENEMY_PROJECTILE, Layers.MANA_ZONE, Layers.PLAYER_SPELL_OFFENSIVE, Layers.PLAYER_SPELL_UTILITY, Layers.PLAYER_PROJECTILE, Layers.WALLS]
 
 
 func _ready() -> void:
@@ -21,8 +22,11 @@ func _ready() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.owner.is_in_group("Projectile"):
-		area.owner.queue_free()
+	print(area.collision_layer)
+	print(Layers.ENEMY_PROJECTILE)
+	print(Layers.is_on_layer(area.collision_layer, Layers.ENEMY_PROJECTILE))
+	if Layers.is_on_layer(area.collision_layer, Layers.ENEMY_PROJECTILE):
+		area.get_parent().queue_free()
 
 
 func cast(player) -> bool:
@@ -32,7 +36,7 @@ func cast(player) -> bool:
 	player.current_mana -= mana_cost
 	emit_signal("mana_changed")
 
-	var proj = ProjectileHelper.throw(player, WIND, size, speed, active_time, ally, damage, stun_time, false, "Wind")
+	var proj = ProjectileHelper.throw(player, WIND, size, speed, active_time, ally, Layers.PLAYER_SPELL_UTILITY, masks, damage, stun_time, false, "Wind")
 	proj.area_2d.area_entered.connect(_on_area_entered)
 
 	return true
