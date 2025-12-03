@@ -2,23 +2,17 @@ extends Moveset
 
 const PROJECTILE = preload("uid://cl3jxyqt80hkg")
 const ARROW = preload("uid://uponwqt1ncca")
-const arrow_speed: float = 1000.0
-const arrow_time: float = 10.0
-const ally: bool = true
+var arrow_speed: float = 1000.0
+var arrow_time: float = 10.0
+const ALLY: bool = true
 var damage: int = 1
+var arrow_stun: float = 1.0
+var size: Vector2 = Vector2(10.0, 2.0)
+var masks = [Layers.ENEMY_HURTBOX, Layers.MANA_ZONE, Layers.PLAYER_SPELL_OFFENSIVE, Layers.PLAYER_SPELL_UTILITY, Layers.WALLS]
 
 
 func _perform_attack(player: Player) -> void:
-	var projectile = PROJECTILE.instantiate()
-	projectile.sprite_texture = ARROW
-	projectile.speed = arrow_speed
-	projectile.traveling_time = arrow_time
-	projectile.is_ally = ally
-	projectile.damage = damage
-	projectile.stun_duration = player.data.stun_diration
-	projectile.global_position = player.global_position
-	projectile.direction = (player.get_global_mouse_position() - player.global_position).normalized()
-	player.get_parent().add_child(projectile)
+	ProjectileHelper.throw(player, ARROW, size, arrow_speed, arrow_time, ALLY, Layers.PLAYER_PROJECTILE, masks, damage, arrow_stun, true, null)
 
 
 func _end_attack(_player: Player) -> void:

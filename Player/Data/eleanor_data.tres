@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bwr5om3kv2b7v" path="res://Player/Data/_data.gd" id="1_kdmin"]
 [ext_resource type="Script" uid="uid://0gycki5e8hwy" path="res://Player/Movesets/eleanor_moveset.gd" id="1_nym82"]
-[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="2_vcytp"]
+[ext_resource type="Texture2D" uid="uid://bjds540a1v70e" path="res://Player/_Art/triangle.png" id="3_nym82"]
 
 [resource]
 script = ExtResource("1_kdmin")
-sprite = ExtResource("2_vcytp")
+sprite = ExtResource("3_nym82")
 speed = 100.0
 moveset = ExtResource("1_nym82")
 metadata/_custom_type_script = "uid://bwr5om3kv2b7v"

@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://bvnkyljxinm4e"]
+[gd_scene load_steps=8 format=4 uid="uid://bvnkyljxinm4e"]
 
-[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Sprites/scene.png" id="1_0ltqd"]
+[ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Art/scene.png" id="1_0ltqd"]
 [ext_resource type="PackedScene" uid="uid://damlylql1l7of" path="res://Player/player.tscn" id="2_o06ir"]
-[ext_resource type="PackedScene" uid="uid://syt0a8y6s0xu" path="res://Enemies/base_enemy.tscn" id="3_24ut3"]
-[ext_resource type="Resource" uid="uid://d5ulvj5ekhcb" path="res://Enemies/Data/base_enemy_data.tres" id="4_4c8el"]
-[ext_resource type="PackedScene" uid="uid://cy4rgpb483u7c" path="res://Assets/companion_placeholder.tscn" id="5_o45qy"]
+[ext_resource type="PackedScene" uid="uid://cy4rgpb483u7c" path="res://World/companion_placeholder.tscn" id="5_o45qy"]
 [ext_resource type="Resource" uid="uid://davvempunmoqd" path="res://Player/Data/eleanor_data.tres" id="6_eujtv"]
+[ext_resource type="PackedScene" uid="uid://cmgfukmlgbemc" path="res://Enemies/archer.tscn" id="6_t7hqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o06ir"]
 texture = ExtResource("1_0ltqd")
@@ -29,8 +28,8 @@ separation = Vector2i(1, 1)
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 6, 6, 6, 6, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_hvjqn"]
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 34
+physics_layer_0/collision_layer = 2048
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_o06ir")
 
 [node name="MainMap" type="Node2D"]
@@ -45,9 +44,9 @@ tile_set = SubResource("TileSet_hvjqn")
 [node name="Player" parent="." instance=ExtResource("2_o06ir")]
 position = Vector2(-124, 9)
 
-[node name="BaseEnemy" parent="." instance=ExtResource("3_24ut3")]
-data = ExtResource("4_4c8el")
-
 [node name="CompanionPlaceholder" parent="." instance=ExtResource("5_o45qy")]
 position = Vector2(-283, -137)
 data = ExtResource("6_eujtv")
+
+[node name="Archer" parent="." instance=ExtResource("6_t7hqy")]
+position = Vector2(178, 44)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://s5ymxwbjo312"]
+
+[ext_resource type="PackedScene" uid="uid://coxir11tq0h7h" path="res://Player/Spells/base_offensive_spell.tscn" id="1_jr34y"]
+[ext_resource type="Script" uid="uid://bdumenpy5wkg7" path="res://Combat/Combos/fire_tornado.gd" id="2_nws6n"]
+
+[node name="FireTornado" instance=ExtResource("1_jr34y")]
+collision_mask = 2232
+script = ExtResource("2_nws6n")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(4, 4)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

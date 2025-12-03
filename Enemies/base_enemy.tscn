@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://syt0a8y6s0xu"]
 
-[ext_resource type="Texture2D" uid="uid://bgqbtlefarmow" path="res://Enemies/_Sprites/cercle.png" id="1_hjege"]
+[ext_resource type="Texture2D" uid="uid://bgqbtlefarmow" path="res://Enemies/_Art/cercle.png" id="1_hjege"]
 [ext_resource type="Script" uid="uid://qbp63lu3jjrg" path="res://Enemies/base_enemy.gd" id="1_hrovn"]
-[ext_resource type="Script" uid="uid://bkg8rfh1hctco" path="res://StateMachine/state_machine.gd" id="2_dq6ge"]
+[ext_resource type="Script" uid="uid://bkg8rfh1hctco" path="res://Utils/StateMachine/state_machine.gd" id="2_dq6ge"]
 [ext_resource type="Resource" uid="uid://d5ulvj5ekhcb" path="res://Enemies/Data/base_enemy_data.tres" id="2_o6yar"]
-[ext_resource type="Script" uid="uid://dki71e3o8i881" path="res://StateMachine/States/hitstun.gd" id="4_c2aey"]
-[ext_resource type="Script" uid="uid://c8bah7vu81aj7" path="res://StateMachine/States/chase.gd" id="4_dqv1m"]
-[ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Assets/Combat/hurtbox.gd" id="5_dqv1m"]
+[ext_resource type="Script" uid="uid://dki71e3o8i881" path="res://Utils/StateMachine/States/hitstun.gd" id="4_c2aey"]
+[ext_resource type="Script" uid="uid://c8bah7vu81aj7" path="res://Utils/StateMachine/States/chase.gd" id="4_dqv1m"]
+[ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Combat/hurtbox.gd" id="5_dqv1m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ailr"]
 radius = 16.0
@@ -17,8 +17,9 @@ radius = 17.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrovn"]
 radius = 15.0
 
-[node name="BaseEnemy" type="CharacterBody2D"]
-collision_layer = 32
+[node name="BaseEnemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 64
+collision_mask = 2048
 script = ExtResource("1_hrovn")
 data = ExtResource("2_o6yar")
 
@@ -41,8 +42,8 @@ texture = ExtResource("1_hjege")
 shape = SubResource("CircleShape2D_5ailr")
 
 [node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 8
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("5_dqv1m")
 
 [node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
@@ -50,11 +51,24 @@ shape = SubResource("CircleShape2D_dq6ge")
 debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 128
-collision_mask = 4
+collision_layer = 256
+collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_hrovn")
 debug_color = Color(1, 0, 0, 0.41960785)
 
+[node name="Timers" type="Node" parent="."]
+
+[node name="KnockbackTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="AttackCooldown" type="Timer" parent="Timers"]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Timers/AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
