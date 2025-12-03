@@ -12,6 +12,7 @@ func _ready():
 		enemy.tree_exited.connect(_on_enemy_died)
 	
 	portal.visible = false
+	portal.monitoring = true
 
 func _on_enemy_died():
 	enemies_alive -= 1
