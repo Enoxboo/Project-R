@@ -1,4 +1,4 @@
-extends Moveset
+extends "res://Player/Movesets/_moveset_base.gd"
 
 const PROJECTILE = preload("uid://cl3jxyqt80hkg")
 const ARROW = preload("uid://uponwqt1ncca")
