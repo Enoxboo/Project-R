@@ -1,4 +1,4 @@
-extends Moveset
+extends "res://Player/Movesets/_moveset_base.gd"
 
 func _perform_attack(player: Player) -> void:
 	player.can_attack = false

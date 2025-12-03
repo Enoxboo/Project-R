@@ -5,6 +5,7 @@ class_name Player
 signal mana_changed
 
 const MAIN_DATA = preload("uid://dsefs1fellje")
+const MainMoveset = preload("uid://dhssc3mpye67i")
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var hitbox: Area2D = $Hitbox
@@ -18,7 +19,7 @@ const MAIN_DATA = preload("uid://dsefs1fellje")
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
 
 var data: PlayerData = MAIN_DATA
-var moveset_instance: Moveset = data.moveset.new()
+var moveset_instance = MainMoveset.new()
 var current_health: int
 var is_main_active = true
 var can_attack = true
