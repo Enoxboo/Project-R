@@ -8,14 +8,14 @@ var player: Player
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	if player:
-		player.hurtbox.hit_received.connect(_health_changed)
-		_health_changed(Vector2.ZERO, 0)
+		player.hurtbox.health_changed.connect(_on_health_changed)
+		_on_health_changed(GameData.player_health)
 		player.mana_changed.connect(_on_mana_changed)
 		_on_mana_changed()
 
 
-func _health_changed(_direction: Vector2, _time: float) -> void:
-	health_label.text = "Health: " + str(player.current_health)
+func _on_health_changed(new_health: int) -> void:
+	health_label.text = "Health: " + str(new_health)
 
 
 func _on_mana_changed() -> void:

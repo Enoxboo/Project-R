@@ -1,6 +1,6 @@
 extends Spell
 
-const FIRE = preload("uid://b2qji8hvgq83i")
+const FIRE_SPRITE = preload("uid://b2qji8hvgq83i")
 const MANA_ZONE = preload("uid://c67wryal1n8u2")
 
 
@@ -11,21 +11,18 @@ func _init() -> void:
 	stun_time = 0.2
 	size = Vector2(10.0, 14.0)
 	masks = [Layers.ENEMY_HURTBOX, Layers.MANA_ZONE, Layers.PLAYER_SPELL_OFFENSIVE, Layers.PLAYER_SPELL_UTILITY, Layers.PLAYER_PROJECTILE, Layers.WALLS]
-
+	element = "Fire"
 
 func _on_area_entered(area: Area2D, proj: Projectile) -> void:
 	call_deferred("on_hit", area, proj)
 
 
 func on_hit(area: Area2D, proj: Projectile) -> void:
-	print(area)
 	if area.get_parent().is_in_group("Enemy"):
 		spawn_zone(area)
-	elif area.get_parent().is_in_group("SpellWind"):
-		ComboManager.fire_tornado(proj)
-		area.get_parent().queue_free()
-		proj.queue_free()
-
+	elif Layers.is_on_layer(area.collision_layer, Layers.PLAYER_SPELL_OFFENSIVE) or Layers.is_on_layer(area.collision_layer, Layers.PLAYER_SPELL_UTILITY) or Layers.is_on_layer(area.collision_layer, Layers.MANA_ZONE):
+		ComboManager.check_combo(area, proj)
+	proj.queue_free()
 
 func apply_spell(projectile: Projectile) -> void:
 	spawn_zone(projectile)
@@ -45,8 +42,8 @@ func cast(player) -> bool:
 	player.current_mana -= mana_cost
 	player.emit_signal("mana_changed")
 
-	var proj = ProjectileHelper.throw(player, FIRE, size, speed, active_time, ally, Layers.PLAYER_SPELL_OFFENSIVE, masks, damage, stun_time, true, "Fire")
+	var proj = ProjectileHelper.throw(player, FIRE_SPRITE, size, speed, active_time, ally, Layers.PLAYER_SPELL_OFFENSIVE, masks, damage, stun_time, true, element)
 	proj.area_2d.area_entered.connect(func(area): _on_area_entered(area, proj))
 	proj.timer.timeout.connect(func(): apply_spell(proj))
-
+	
 	return true

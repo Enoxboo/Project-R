@@ -12,7 +12,7 @@ var masks = [Layers.ENEMY_HURTBOX, Layers.MANA_ZONE, Layers.PLAYER_SPELL_OFFENSI
 
 
 func _perform_attack(player: Player) -> void:
-	ProjectileHelper.throw(player, ARROW, size, arrow_speed, arrow_time, ALLY, Layers.PLAYER_PROJECTILE, masks, damage, arrow_stun, true, null)
+	ProjectileHelper.throw(player, ARROW, size, arrow_speed, arrow_time, ALLY, Layers.PLAYER_PROJECTILE, masks, damage, arrow_stun, true, "None")
 
 
 func _end_attack(_player: Player) -> void:

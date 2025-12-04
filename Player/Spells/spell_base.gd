@@ -14,7 +14,7 @@ var cooldown: float = 3.0
 var size: Vector2 = Vector2(10.0, 14.0)
 var mana_cost: int = 5
 var masks = []
-
+var element: String
 
 func _ready() -> void:
 	timer.wait_time = active_time

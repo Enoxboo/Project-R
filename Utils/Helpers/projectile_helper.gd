@@ -22,9 +22,8 @@ static func throw(parent, sprite, size, speed, time, is_ally, layer_type: int, m
 	proj.set_collision_size(size)
 	proj.area_2d.collision_layer = 0
 	proj.area_2d.collision_mask = 0
+	proj.element = element
 	proj.area_2d.set_collision_layer_value(layer_type, true)
-	if element:
-		proj.add_to_group("Spell" + element)
 	for mask in masks:
 		proj.area_2d.set_collision_mask_value(mask, true)
 

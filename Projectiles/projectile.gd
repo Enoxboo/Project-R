@@ -17,7 +17,7 @@ var speed: float = 800.0
 var damage: int = 1
 var stun_duration: float = 1.0
 var is_attack = true
-
+var element: String
 var direction: Vector2 = Vector2(1.0, 0.0)
 
 
