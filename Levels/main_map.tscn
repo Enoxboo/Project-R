@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://bvnkyljxinm4e"]
+[gd_scene load_steps=11 format=4 uid="uid://bvnkyljxinm4e"]
 
 [ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Art/scene.png" id="1_0ltqd"]
 [ext_resource type="PackedScene" uid="uid://damlylql1l7of" path="res://Player/player.tscn" id="2_o06ir"]
 [ext_resource type="PackedScene" uid="uid://c67wryal1n8u2" path="res://Combat/ManaZones/mana_zone.tscn" id="3_24ut3"]
 [ext_resource type="PackedScene" uid="uid://bbox2nfq1xt51" path="res://UI/player_interface.tscn" id="4_4c8el"]
 [ext_resource type="PackedScene" uid="uid://dvdjud235dagf" path="res://World/fire_camp.tscn" id="5_o45qy"]
+[ext_resource type="Resource" uid="uid://davvempunmoqd" path="res://Player/Data/eleanor_data.tres" id="6_eujtv"]
 [ext_resource type="PackedScene" uid="uid://cmgfukmlgbemc" path="res://Enemies/archer.tscn" id="6_t7hqy"]
-[ext_resource type="PackedScene" uid="uid://syt0a8y6s0xu" path="res://Enemies/base_enemy.tscn" id="7_t7hqy"]
+[ext_resource type="PackedScene" uid="uid://cy4rgpb483u7c" path="res://World/companion_placeholder.tscn" id="7_adqtn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o06ir"]
 texture = ExtResource("1_0ltqd")
@@ -67,5 +68,6 @@ position = Vector2(-230, 35)
 [node name="Archer" parent="." instance=ExtResource("6_t7hqy")]
 position = Vector2(277, -32)
 
-[node name="BaseEnemy" parent="." instance=ExtResource("7_t7hqy")]
-position = Vector2(278, 43)
+[node name="CompanionPlaceholder" parent="." instance=ExtResource("7_adqtn")]
+position = Vector2(-279, -98)
+data = ExtResource("6_eujtv")

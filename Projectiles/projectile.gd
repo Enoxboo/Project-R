@@ -28,7 +28,7 @@ func set_collision_size(new_size: Vector2) -> void:
 func _ready() -> void:
 	if sprite_texture:
 		sprite.texture = sprite_texture
-
+	
 	timer.wait_time = traveling_time
 	timer.start()
 
@@ -43,6 +43,14 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage") and is_attack:
 		area.take_damage(damage, direction, stun_duration)
+	if Layers.is_on_layer(area.collision_layer, Layers.MANA_ZONE) or Layers.is_on_layer(area.collision_layer, Layers.PLAYER_SPELL_OFFENSIVE) or Layers.is_on_layer(area.collision_layer, Layers.PLAYER_SPELL_UTILITY):
+		match element:
+			"None":
+				ComboManager.check_combo(area, self)
+	if Layers.is_on_layer(area.collision_layer, Layers.ENEMY_HURTBOX) or Layers.is_on_layer(area.collision_layer, Layers.PLAYER_HURTBOX):
+		match element:
+			"Fire":
+				area.burn(1, 1)
 
 
 func apply_spell():

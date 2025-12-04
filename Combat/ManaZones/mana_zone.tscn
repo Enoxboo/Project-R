@@ -10,8 +10,6 @@ size = Vector2(64, 64)
 collision_layer = 1024
 collision_mask = 698
 script = ExtResource("1_4akwi")
-element = null
-active_time = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)
@@ -25,4 +23,5 @@ wait_time = 2.0
 one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

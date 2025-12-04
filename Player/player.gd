@@ -17,6 +17,7 @@ const MainMoveset = preload("uid://dhssc3mpye67i")
 @onready var spell_2_cooldown: Timer = $Timers/Spell2Cooldown
 @onready var switch_timer: Timer = $Timers/SwitchTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
+@onready var wind_boost_decay: Timer = $Timers/WindBoostDecay
 
 var data: PlayerData = MAIN_DATA
 var moveset_instance = MainMoveset.new()
@@ -27,6 +28,7 @@ var can_spell_1 = true
 var can_spell_2 = true
 var can_dash = true
 var can_switch = true
+var is_wind_boost = false
 var companion_data: Resource = null
 var spell1_instance
 var spell2_instance
@@ -94,3 +96,21 @@ func _on_dash_cooldown_timeout() -> void:
 
 func _on_mana_changed() -> void:
 	emit_signal("mana_changed")
+
+func wind_boost() -> void:
+	print("try wind boost")
+	if not is_wind_boost:
+		print("start wind boost")
+		is_wind_boost = true
+		data.speed *= 2
+
+func end_wind_boost() -> void:
+	if not wind_boost_decay.is_stopped():
+		wind_boost_decay.stop()
+	wind_boost_decay.start()
+	
+
+func _on_wind_boost_decay_timeout() -> void:
+	is_wind_boost = false
+	data.speed /= 2
+	print(data.speed)
