@@ -1,7 +1,5 @@
 extends Area2D
 
-class_name Hurtbox
-
 signal hit_received(direction: Vector2, time: float)
 signal health_changed(new_health: int)
 
