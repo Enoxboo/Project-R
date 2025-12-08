@@ -15,6 +15,7 @@ var max_health: int = 10
 var current_health: int
 var can_attack = true
 var is_wind_boost = false
+var speed_modifier: float = 1.0
 
 func _ready() -> void:
 	current_health = max_health
@@ -34,7 +35,7 @@ func _on_attack_cooldown_timeout() -> void:
 func wind_boost() -> void:
 	if not is_wind_boost:
 		is_wind_boost = true
-		data.speed *= 2
+		speed_modifier = 2.0
 
 func end_wind_boost() -> void:
 	if not wind_boost_decay.is_stopped():
@@ -44,5 +45,4 @@ func end_wind_boost() -> void:
 
 func _on_wind_boost_decay_timeout() -> void:
 	is_wind_boost = false
-	data.speed /= 2
-	print(data.speed)
+	speed_modifier = 1.0

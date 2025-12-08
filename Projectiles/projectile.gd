@@ -16,9 +16,9 @@ var traveling_time: float = 10.0
 var speed: float = 800.0
 var damage: int = 1
 var stun_duration: float = 1.0
-var is_attack = true
 var element: String
 var direction: Vector2 = Vector2(1.0, 0.0)
+var destruct_on_hit = true
 
 
 func set_collision_size(new_size: Vector2) -> void:
@@ -41,17 +41,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.has_method("take_damage") and is_attack:
-		area.take_damage(damage, direction, stun_duration)
-	if Layers.is_on_layer(area.collision_layer, Layers.MANA_ZONE) or Layers.is_on_layer(area.collision_layer, Layers.PLAYER_SPELL_OFFENSIVE) or Layers.is_on_layer(area.collision_layer, Layers.PLAYER_SPELL_UTILITY):
-		match element:
-			"None":
-				ComboManager.check_combo(area, self)
-	if Layers.is_on_layer(area.collision_layer, Layers.ENEMY_HURTBOX) or Layers.is_on_layer(area.collision_layer, Layers.PLAYER_HURTBOX):
-		match element:
-			"Fire":
-				area.burn(1, 1)
+	HitboxUtil.hurt_target(area, damage, direction, stun_duration)
+	ElementUtil.apply_element(area, element)
+	ComboManager.process_magic_interaction(area, self)
 
-
-func apply_spell():
-	pass
+	var is_magic_collision = Layers.is_magical(area.collision_layer)
+	HitboxUtil.spawn_zone(self, is_magic_collision)

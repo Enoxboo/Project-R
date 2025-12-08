@@ -4,40 +4,71 @@ class_name ComboManager
 
 const FIRE_TORNADO = preload("uid://s5ymxwbjo312")
 
-static func check_combo(area: Area2D, proj: Projectile) -> void:
-	if Layers.is_on_layer(proj.area_2d.collision_layer, Layers.PLAYER_PROJECTILE) or Layers.is_on_layer(proj.area_2d.collision_layer, Layers.ENEMY_PROJECTILE):
-		check_area_element(area.element, proj)
-	elif Layers.is_on_layer(area.collision_layer, Layers.PLAYER_SPELL_OFFENSIVE) or Layers.is_on_layer(area.collision_layer, Layers.PLAYER_SPELL_UTILITY):
-		check_area_element(area.get_parent().element, proj)
-		area.get_parent().queue_free()
-		proj.queue_free()
-	elif Layers.is_on_layer(area.collision_layer, Layers.MANA_ZONE):
-		check_area_element(area.element, proj)
-		area.queue_free()
-		proj.queue_free()
+
+static func process_magic_interaction(area: Area2D, proj: Projectile) -> void:
+	if not Layers.is_magical(area.collision_layer):
+		return
+	var zone_element: String = _get_element_from_area(area)
+	if zone_element == "":
+		return
+	
+	var other_proj = _get_projectile_from_area(area)
+	if other_proj:
+		if proj.get_instance_id() > other_proj.get_instance_id():
+			proj.queue_free()
+			return
+	
+	if proj.element == "None":
+		_imbue(proj, zone_element)
+	else:
+		_try_combo(proj.element, zone_element, proj)
 
 
-static func check_area_element(area_element: String, proj: Projectile):
-	if area_element == "Fire" and proj.element == "Wind":
-		fire_tornado(proj)
-	elif area_element == "Wind" and proj.element == "Fire":
-		fire_tornado(proj)
-	elif area_element == "Fire" and proj.element == "Fire":
-		print("super feu")
-	elif area_element == "Wind" and proj.element == "Wind":
-		print("super vent")
-	elif proj.element == "None":
-		proj.element = area_element
-		match proj.element:
-			"Fire":
-				proj.sprite.modulate = "Red"
-			"Wind":
-				proj.sprite.modulate = "Silver"
-				proj.speed *= 2
-				proj.damage *= 2
+static func _get_element_from_area(area: Area2D) -> String:
+	if area is ManaZone:
+		return area.element
+	
+	var parent = area.get_parent()
+	if parent is Projectile:
+		return parent.element
+	
+	return ""
+
+
+static func _get_projectile_from_area(area: Area2D) -> Projectile:
+	var parent = area.get_parent()
+	if parent is Projectile:
+		return parent
+	return null
+
+
+static func _imbue(proj: Projectile, zone_element: String) -> void:
+	proj.element = zone_element
+	match proj.element:
+		"Fire":
+			proj.sprite.modulate = "Red"
+		"Wind":
+			proj.sprite.modulate = "Silver"
+			proj.speed *= 2
+			proj.damage *= 2
+
+
+static func _try_combo(proj_element: String, zone_element: String, proj: Projectile) -> void:
+	var effects := {
+		["Fire", "Wind"]: func(): fire_tornado(proj),
+		["Wind", "Fire"]: func(): fire_tornado(proj),
+		["Fire", "Fire"]: func(): print("super feu"),
+		["Wind", "Wind"]: func(): print("super vent")
+	}
+
+	var key := [zone_element, proj_element]
+	if effects.has(key):
+		effects[key].call()
+
 
 static func fire_tornado(proj) -> void:
 	var combo_instance = FIRE_TORNADO.instantiate()
 	combo_instance.global_position = proj.global_position
 	combo_instance.direction = proj.direction
-	proj.get_parent().add_child(combo_instance)
+	proj.get_parent().call_deferred("add_child", combo_instance)
+	proj.call_deferred("queue_free")

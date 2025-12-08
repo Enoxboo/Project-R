@@ -33,7 +33,7 @@ var companion_data: Resource = null
 var spell1_instance
 var spell2_instance
 var current_mana: float
-
+var speed_modifier: float = 1.0
 
 func _ready() -> void:
 	current_health = GameData.player_health
@@ -74,8 +74,7 @@ func _on_spell_selected(spell_name: String):
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	var direction: Vector2 = (area.global_position - global_position).normalized()
-	if area.has_method("take_damage"):
-		area.take_damage(data.damage, direction, data.stun_duration)
+	HitboxUtil.hurt_target(area, data.damage, direction, data.stun_duration)
 
 
 func _on_spell_1_cooldown_timeout() -> void:
@@ -102,7 +101,7 @@ func wind_boost() -> void:
 	if not is_wind_boost:
 		print("start wind boost")
 		is_wind_boost = true
-		data.speed *= 2
+		speed_modifier = 2.0
 
 func end_wind_boost() -> void:
 	if not wind_boost_decay.is_stopped():
@@ -112,5 +111,5 @@ func end_wind_boost() -> void:
 
 func _on_wind_boost_decay_timeout() -> void:
 	is_wind_boost = false
-	data.speed /= 2
+	speed_modifier = 1.0
 	print(data.speed)
