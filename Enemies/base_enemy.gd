@@ -8,12 +8,14 @@ class_name Enemy
 @onready var knockback_timer: Timer = $Timers/KnockbackTimer
 @onready var stun_timer: Timer = $Timers/StunTimer
 @onready var attack_cooldown: Timer = $Timers/AttackCooldown
+@onready var wind_boost_decay: Timer = $Timers/WindBoostDecay
 
 var player: Player
 var max_health: int = 10
 var current_health: int
 var can_attack = true
-
+var is_wind_boost = false
+var speed_modifier: float = 1.0
 
 func _ready() -> void:
 	current_health = max_health
@@ -29,3 +31,18 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
+
+func wind_boost() -> void:
+	if not is_wind_boost:
+		is_wind_boost = true
+		speed_modifier = 2.0
+
+func end_wind_boost() -> void:
+	if not wind_boost_decay.is_stopped():
+		wind_boost_decay.stop()
+	wind_boost_decay.start()
+	
+
+func _on_wind_boost_decay_timeout() -> void:
+	is_wind_boost = false
+	speed_modifier = 1.0

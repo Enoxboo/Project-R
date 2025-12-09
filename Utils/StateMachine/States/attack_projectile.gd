@@ -1,7 +1,7 @@
 extends State
 
 var masks = [Layers.PLAYER_HURTBOX, Layers.MANA_ZONE, Layers.WALLS]
-
+var destruct_on_hit = true
 
 func enter(_data := { }) -> void:
 	await attack()
@@ -16,5 +16,5 @@ func attack() -> void:
 	parent.can_attack = false
 	parent.attack_cooldown.start()
 	parent.velocity = Vector2.ZERO
-	ProjectileHelper.throw(parent, parent.data.attack_sprite, parent.data.attack_size, parent.data.projectile_speed, parent.data.projectile_time, parent.data.ALLY, Layers.ENEMY_PROJECTILE, masks, parent.data.damage, parent.data.projectile_stun, true, "None")
+	ProjectileHelper.throw(parent, parent.data.attack_sprite, parent.data.attack_size, parent.data.projectile_speed, parent.data.projectile_time, parent.data.ALLY, Layers.ENEMY_PROJECTILE, masks, parent.data.damage, parent.data.projectile_stun, "None", destruct_on_hit)
 	await get_tree().create_timer(1.5).timeout

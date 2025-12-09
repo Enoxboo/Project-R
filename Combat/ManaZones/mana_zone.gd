@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name ManaZone
+
 @onready var sprite: Sprite2D = $Sprite
 @onready var timer: Timer = $Timer
 
@@ -9,15 +11,18 @@ extends Area2D
 func _ready() -> void:
 	if element == "Fire":
 		sprite.modulate = "Red"
-	elif element == "WInd":
-		sprite.modulate = "Gray"
+	elif element == "Wind":
+		sprite.modulate = "Silver"
 	timer.wait_time = active_time
 	timer.start()
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if element == "Fire" and Layers.is_on_layer(area.collision_layer, Layers.PLAYER_HURTBOX) or Layers.is_on_layer(area.collision_layer, Layers.ENEMY_HURTBOX):
-		area.burn(3, 1)
+	ElementUtil.apply_element(area, element)
+
+
+func _on_area_exited(area: Area2D) -> void:
+	ElementUtil.end_element(area, element)
 
 
 func _on_timer_timeout() -> void:

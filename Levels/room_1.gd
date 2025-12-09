@@ -20,7 +20,8 @@ func _on_enemy_died():
 	print("Enemies left: ", enemies_alive)
 
 	if enemies_alive <= 0:
-		GameData.next_room += 1
+		if not portal.is_demo:
+			GameData.next_room += 1
 		portal.visible = true
 		portal.monitoring = true
 		print("All enemies defeated!")

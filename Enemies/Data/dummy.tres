@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://xe0jof5thoyo"]
+
+[ext_resource type="Script" uid="uid://b4i58ugq5b8c8" path="res://Enemies/Data/_enemy_data.gd" id="1_fl7ej"]
+[ext_resource type="Texture2D" uid="uid://bgqbtlefarmow" path="res://Enemies/_Art/cercle.png" id="2_5qb1c"]
+
+[resource]
+script = ExtResource("1_fl7ej")
+sprite = ExtResource("2_5qb1c")
+speed = 0.0
+initial_state = "Chase"
+metadata/_custom_type_script = "uid://b4i58ugq5b8c8"

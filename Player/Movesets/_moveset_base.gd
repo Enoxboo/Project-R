@@ -1,5 +1,3 @@
-extends RefCounted
-
 class_name Moveset
 
 func attack(player: Player) -> void:
