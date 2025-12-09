@@ -14,4 +14,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		portal.visible = true
 		portal.monitoring = true
 		area_2d.visible = false
-		area_2d.monitoring = false
+		set_deferred("area_2d.monitoring", false)
