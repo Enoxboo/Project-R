@@ -62,9 +62,9 @@ offset_top = -101.0
 offset_right = 310.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Passe par dessus ce truc pour te give un compagnon
-Une fois être passé dessus une fois, tu peux switch sur un deuxième personnage
-Ce personnage a des stats modifiées et une toute nouvelle attaque
+text = "Passe par dessus la plateforme pour avoir un compagnon. 
+Une fois le nouveau compagnon acquéri, tu peux passer de l'un à l'autre avec TAB. 
+Celui-ci possède des statistiques modifiées et une nouvelle attaque. 
 "
 horizontal_alignment = 1
 vertical_alignment = 1

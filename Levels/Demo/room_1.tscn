@@ -55,10 +55,10 @@ offset_top = -101.0
 offset_right = 266.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "ZQSD pour se déplacer / Clic gauche pour attaquer en mélée
-Le rectangle à droite est un portail qui t'emmene à la prochaine zone
-Tu y affronteras un ennemi basique
-Bat le pour pouvoir poursuivre"
+text = "Utilise ZQSD pour te déplacer et clic gauche pour attaquer en mêlée.
+Le rectangle à droite est un portail qui t'emmènera à la prochaine zone 
+dans laquelle tu affronteras un ennemi basique. 
+Combat le jusqu'à ce qu'il meurt pour passer à la suite."
 horizontal_alignment = 1
 vertical_alignment = 1
 

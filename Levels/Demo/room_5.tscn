@@ -56,8 +56,8 @@ offset_top = -101.0
 offset_right = 310.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Les feu de camp servent à te donner un sort parmit les 2 existant.
-Prend Fireball et utilise le sort avec clid droit"
+text = "Les feux de camps servent à obtenir de nouveau sort. 
+Pour la suite, sélectionne Fireball, tu peux l'utiliser avec clic droit."
 horizontal_alignment = 1
 vertical_alignment = 1
 
