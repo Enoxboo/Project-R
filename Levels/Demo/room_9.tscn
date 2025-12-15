@@ -60,8 +60,8 @@ offset_top = -101.0
 offset_right = 310.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Les sorts ont des éléments
-Essaie de combiner un sort de feu avec une zone ou un sort de vent"
+text = "Les différents sorts ont chacuns leur élément.
+Essaie de combiner un sorte de feu avec soit une zone ou un sorte de vent."
 horizontal_alignment = 1
 vertical_alignment = 1
 

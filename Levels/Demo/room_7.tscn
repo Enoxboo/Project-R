@@ -56,8 +56,9 @@ offset_top = -101.0
 offset_right = 310.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Essaie le deuxième sort \"windwall\" sur E
-Il permet de supprimer les projectiles ennemis"
+text = "Tu peux à présent tester le sort Windwall en appuyant sur E.
+Il permet de supprimer les projectiles des ennemies.
+Tu peux le combiner avec Fireball !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
