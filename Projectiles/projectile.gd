@@ -28,7 +28,7 @@ func set_collision_size(new_size: Vector2) -> void:
 func _ready() -> void:
 	if sprite_texture:
 		sprite.texture = sprite_texture
-	
+
 	timer.wait_time = traveling_time
 	timer.start()
 

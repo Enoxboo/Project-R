@@ -19,7 +19,7 @@ func show_menu():
 
 
 func _on_fireball_selected():
-	spell_selected.emit("fireball")
+	spell_selected.emit("firecage")
 	visible = false
 	is_spell_selected = true
 

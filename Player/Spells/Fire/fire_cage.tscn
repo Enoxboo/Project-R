@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://defbmy8fpr7s2"]
+
+[ext_resource type="Texture2D" uid="uid://ckmy0koccxexl" path="res://Player/_Art/firewall.png" id="1_evy7h"]
+[ext_resource type="Script" uid="uid://fjvl6sdf47kp" path="res://Player/Spells/zone_instance.gd" id="1_uedkb"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uedkb"]
+a = Vector2(-6, -44)
+b = Vector2(-6, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s30cl"]
+atlas = ExtResource("1_evy7h")
+region = Rect2(0, 0, 16, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rltx"]
+atlas = ExtResource("1_evy7h")
+region = Rect2(16, 0, 16, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it7px"]
+atlas = ExtResource("1_evy7h")
+region = Rect2(32, 0, 16, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15qhx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s30cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rltx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it7px")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireCage" type="Node2D"]
+script = ExtResource("1_uedkb")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="LeftWall" type="Area2D" parent="."]
+position = Vector2(-38, -2)
+collision_layer = 16
+collision_mask = 698
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("SegmentShape2D_uedkb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftWall"]
+sprite_frames = SubResource("SpriteFrames_15qhx")
+autoplay = "default"
+frame = 2
+frame_progress = 0.79493076
+
+[node name="TopWall" type="Area2D" parent="."]
+position = Vector2(2, -42)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 698
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+shape = SubResource("SegmentShape2D_uedkb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TopWall"]
+sprite_frames = SubResource("SpriteFrames_15qhx")
+autoplay = "default"
+frame = 2
+frame_progress = 0.79493076
+
+[node name="RightWall" type="Area2D" parent="."]
+position = Vector2(38, 2)
+rotation = 3.1415927
+collision_layer = 16
+collision_mask = 698
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("SegmentShape2D_uedkb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RightWall"]
+sprite_frames = SubResource("SpriteFrames_15qhx")
+autoplay = "default"
+frame = 2
+frame_progress = 0.79493076
+
+[node name="BotWall" type="Area2D" parent="."]
+position = Vector2(-2, 42)
+rotation = -1.5707964
+collision_layer = 16
+collision_mask = 698
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BotWall"]
+shape = SubResource("SegmentShape2D_uedkb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BotWall"]
+sprite_frames = SubResource("SpriteFrames_15qhx")
+autoplay = "default"
+frame = 2
+frame_progress = 0.79493076

@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://s5ymxwbjo312"]
+[gd_scene load_steps=4 format=3 uid="uid://crt450wflde7u"]
 
-[ext_resource type="PackedScene" uid="uid://coxir11tq0h7h" path="res://Player/Spells/base_offensive_spell.tscn" id="1_jr34y"]
+[ext_resource type="Texture2D" uid="uid://b2qji8hvgq83i" path="res://Player/_Art/fire.png" id="1_0lla5"]
 [ext_resource type="Script" uid="uid://bdumenpy5wkg7" path="res://Combat/Combos/fire_tornado.gd" id="2_nws6n"]
 
-[node name="FireTornado" instance=ExtResource("1_jr34y")]
-collision_mask = 2232
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v24bs"]
+radius = 14.0
+height = 42.0
+
+[node name="FireTornado" type="Area2D"]
 script = ExtResource("2_nws6n")
 
-[node name="Sprite2D" parent="." index="1"]
-scale = Vector2(4, 4)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_v24bs")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_0lla5")
+
+[node name="Timer" type="Timer" parent="."]

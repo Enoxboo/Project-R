@@ -1,9 +1,10 @@
-extends Spell
+extends SpellProjectile
 
 const WIND = preload("uid://c2vcprt14i77g")
 
 
 func _init() -> void:
+	cooldown = 2.0
 	speed = 50.0
 	active_time = 10.0
 	damage = 0
@@ -13,30 +14,19 @@ func _init() -> void:
 	element = "Wind"
 	destruct_on_hit = false
 
-func _ready() -> void:
-	speed = 50.0
-	active_time = 10.0
-	damage = 0
-	stun_time = 0
-	size = Vector2(6.0, 30.0)
-	super._ready()
 
 func _on_area_entered(area: Area2D) -> void:
 	call_deferred("on_hit", area)
+
 
 func on_hit(area: Area2D) -> void:
 	if Layers.is_on_layer(area.collision_layer, Layers.ENEMY_PROJECTILE):
 		area.get_parent().queue_free()
 
 
-func cast(player) -> bool:
-	if not super.cast(player):
+func cast(player):
+	var proj = super.cast(player)
+	if not proj:
 		return false
 
-	player.current_mana -= mana_cost
-	player.emit_signal("mana_changed")
-
-	var proj = ProjectileHelper.throw(player, WIND, size, speed, active_time, ally, Layers.PLAYER_SPELL_UTILITY, masks, damage, stun_time, element, destruct_on_hit)
 	proj.area_2d.area_entered.connect(_on_area_entered)
-	
-	return true

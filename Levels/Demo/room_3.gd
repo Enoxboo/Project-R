@@ -4,9 +4,11 @@ extends Node2D
 @onready var label: Label = $Tuto/Label
 @onready var portal: Area2D = $Portal
 
+
 func _ready() -> void:
 	portal.visible = false
 	portal.monitoring = false
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if Layers.is_on_layer(area.collision_layer, Layers.PLAYER_PROJECTILE):

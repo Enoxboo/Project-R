@@ -1,9 +1,11 @@
-extends Spell
+extends SpellProjectile
 
-const FIRE_SPRITE = preload("uid://b2qji8hvgq83i")
+const FIRE = preload("uid://b2qji8hvgq83i")
 
 
 func _init() -> void:
+	sprite = FIRE
+	cooldown = 0.1
 	speed = 500.0
 	active_time = 1.0
 	damage = 1
@@ -14,14 +16,9 @@ func _init() -> void:
 	destruct_on_hit = true
 
 
-func cast(player) -> bool:
-	if not super.cast(player):
+func cast(player):
+	var proj = super.cast(player)
+	if not proj:
 		return false
 
-	player.current_mana -= mana_cost
-	player.emit_signal("mana_changed")
-
-	var proj = ProjectileHelper.throw(player, FIRE_SPRITE, size, speed, active_time, ally, Layers.PLAYER_SPELL_OFFENSIVE, masks, damage, stun_time, element, destruct_on_hit)
 	proj.timer.timeout.connect(func(): HitboxUtil.spawn_zone(proj, false))
-
-	return true

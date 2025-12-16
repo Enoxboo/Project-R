@@ -3,6 +3,7 @@ extends Area2D
 @export var target_scene: String = "room"
 @export var is_demo = false
 
+
 func _on_area_entered(area: Area2D) -> void:
 	if area.owner.is_in_group("Player"):
 		GameData.player_health = area.owner.current_health
@@ -10,7 +11,7 @@ func _on_area_entered(area: Area2D) -> void:
 		GameData.equipped_spell_1 = area.owner.spell1_instance
 		GameData.equipped_spell_2 = area.owner.spell2_instance
 		GameData.companion_data = area.owner.companion_data
-	
+
 	if is_demo:
 		GameData.next_room += 1
 		print("res://Levels/Demo/" + target_scene + "_" + str(GameData.next_room) + ".tscn")

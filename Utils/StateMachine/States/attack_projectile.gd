@@ -3,6 +3,7 @@ extends State
 var masks = [Layers.PLAYER_HURTBOX, Layers.MANA_ZONE, Layers.WALLS]
 var destruct_on_hit = true
 
+
 func enter(_data := { }) -> void:
 	await attack()
 	finished.emit(CHASE)

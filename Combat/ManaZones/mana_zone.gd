@@ -8,6 +8,7 @@ class_name ManaZone
 @export var element: String
 @export var active_time: float = 2.0
 
+
 func _ready() -> void:
 	if element == "Fire":
 		sprite.modulate = "Red"

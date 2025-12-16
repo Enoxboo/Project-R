@@ -3,6 +3,7 @@ extends Area2D
 signal hit_received(direction: Vector2, time: float)
 signal health_changed(new_health: int)
 
+
 func take_damage(amount: int, direction: Vector2, stun_duration: float) -> void:
 	print("ON-HIT : Before health = " + str(get_parent().current_health))
 	get_parent().current_health = max(0, get_parent().current_health - amount)

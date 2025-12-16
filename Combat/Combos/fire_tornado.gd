@@ -1,11 +1,8 @@
-extends Spell
+extends Area2D
 
 var rotation_speed: float = 100.0
 var direction: Vector2
-
-
-func _ready() -> void:
-	speed = 300.0
+var speed = 300.0
 
 
 func _physics_process(delta: float) -> void:

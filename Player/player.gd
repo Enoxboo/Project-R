@@ -35,6 +35,7 @@ var spell2_instance
 var current_mana: float
 var speed_modifier: float = 1.0
 
+
 func _ready() -> void:
 	current_health = GameData.player_health
 	current_mana = GameData.player_mana
@@ -96,6 +97,7 @@ func _on_dash_cooldown_timeout() -> void:
 func _on_mana_changed() -> void:
 	emit_signal("mana_changed")
 
+
 func wind_boost() -> void:
 	print("try wind boost")
 	if not is_wind_boost:
@@ -103,11 +105,12 @@ func wind_boost() -> void:
 		is_wind_boost = true
 		speed_modifier = 2.0
 
+
 func end_wind_boost() -> void:
 	if not wind_boost_decay.is_stopped():
 		wind_boost_decay.stop()
 	wind_boost_decay.start()
-	
+
 
 func _on_wind_boost_decay_timeout() -> void:
 	is_wind_boost = false
