@@ -8,6 +8,8 @@ radius = 14.0
 height = 42.0
 
 [node name="FireTornado" type="Area2D"]
+collision_layer = 16
+collision_mask = 128
 script = ExtResource("2_nws6n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,3 +20,5 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_0lla5")
 
 [node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
