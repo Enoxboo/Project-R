@@ -16,6 +16,9 @@ func _ready():
 
 
 func _on_wall_area_entered(area: Area2D) -> void:
+	if Layers.is_on_layer(area.collision_layer, Layers.PLAYER_HURTBOX):
+		queue_free()
+		return
 	ElementUtil.apply_element(area, element)
 
 
