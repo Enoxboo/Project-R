@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bd2iitqx7gqu7"]
+[gd_scene load_steps=8 format=4 uid="uid://bd2iitqx7gqu7"]
 
 [ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Art/scene.png" id="1_fe8cv"]
 [ext_resource type="PackedScene" uid="uid://damlylql1l7of" path="res://Player/player.tscn" id="2_tknyg"]
 [ext_resource type="PackedScene" uid="uid://chqc4wf1pfn8i" path="res://Enemies/Boss/boss.tscn" id="4_3ckme"]
 [ext_resource type="PackedScene" uid="uid://bbox2nfq1xt51" path="res://UI/player_interface.tscn" id="4_5lqpd"]
+[ext_resource type="PackedScene" uid="uid://b5ep13rhjrhwi" path="res://UI/boss_ui.tscn" id="5_nrrel"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5rn7s"]
 texture = ExtResource("1_fe8cv")
@@ -46,3 +47,5 @@ position = Vector2(-279, 0)
 
 [node name="Boss" parent="." instance=ExtResource("4_3ckme")]
 position = Vector2(-1, -140)
+
+[node name="Boss_UI" parent="." instance=ExtResource("5_nrrel")]

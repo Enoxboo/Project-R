@@ -53,3 +53,4 @@ debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="AttackCooldown" type="Timer" parent="."]
 one_shot = true
+autostart = true

@@ -1,8 +1,12 @@
 extends CanvasLayer
 
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var label: Label = $Label
 
-var boss: Area2D
+var boss: CharacterBody2D
+
+func _process(_delta: float) -> void:
+	label.text = str(boss.state_machine.state)
 
 func _ready() -> void:
 	boss = get_tree().get_first_node_in_group("Boss")
