@@ -11,7 +11,6 @@ class_name Enemy
 @onready var wind_boost_decay: Timer = $Timers/WindBoostDecay
 
 var player: Player
-var max_health: int = 10
 var current_health: int
 var can_attack = true
 var is_wind_boost = false
@@ -19,7 +18,7 @@ var speed_modifier: float = 1.0
 
 
 func _ready() -> void:
-	current_health = max_health
+	current_health = data.max_health
 	sprite.texture = data.sprite
 	player = get_tree().get_first_node_in_group("Player")
 

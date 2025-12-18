@@ -13,6 +13,8 @@ const HITSTUN = "Hitstun"
 
 const CHASE = "Chase"
 const ATTACK_PROJECTILE = "AttackProjectile"
+const IDLE = "Idle"
+const ATTACK1 = "Attack1"
 
 var parent: CharacterBody2D
 

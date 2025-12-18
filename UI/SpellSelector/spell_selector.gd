@@ -25,6 +25,6 @@ func _on_fireball_selected():
 
 
 func _on_windwall_selected():
-	spell_selected.emit("windwall")
+	spell_selected.emit("windburst")
 	visible = false
 	is_spell_selected = true

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ep13rhjrhwi"]
+
+[ext_resource type="Script" uid="uid://c20ucm6fsms8e" path="res://UI/boss_ui.gd" id="1_xj6ef"]
+
+[node name="Boss_UI" type="CanvasLayer"]
+script = ExtResource("1_xj6ef")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -27.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+step = 1.0
+value = 100.0

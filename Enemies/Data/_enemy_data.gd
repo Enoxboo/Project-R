@@ -5,6 +5,7 @@ class_name EnemyData
 const ALLY: bool = false
 
 @export var sprite: Texture2D
+@export var max_health: int = 10
 @export var speed: float = 100.0
 @export var damage: int = 1
 @export var stun_duration: float = 1
