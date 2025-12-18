@@ -30,5 +30,13 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = { }
 
 
 func _on_hit_received(direction: Vector2, time: float) -> void:
-	var data: Dictionary = { "direction": direction, "time": time }
-	_transition_to_next_state(state.HITSTUN, data)
+	_flash_red()
+	
+	if not owner.is_in_group("Boss"):
+		var data: Dictionary = { "direction": direction, "time": time }
+		_transition_to_next_state(state.HITSTUN, data)
+
+func _flash_red() -> void:
+	owner.sprite.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	owner.sprite.modulate = Color.WHITE

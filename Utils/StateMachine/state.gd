@@ -18,7 +18,6 @@ const ATTACK1 = "Attack1"
 
 var parent: CharacterBody2D
 
-
 func _ready() -> void:
 	await owner.ready
 	parent = owner as CharacterBody2D
