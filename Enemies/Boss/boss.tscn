@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chqc4wf1pfn8i"]
+[gd_scene load_steps=19 format=3 uid="uid://chqc4wf1pfn8i"]
 
 [ext_resource type="Script" uid="uid://bpmkrsojqbioc" path="res://Enemies/Boss/boss.gd" id="1_iiw74"]
 [ext_resource type="Texture2D" uid="uid://8rslteh1r0q2" path="res://Enemies/_Art/boss.png" id="2_bh1y1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cmik2mr1ruob3" path="res://Enemies/Boss/idle.gd" id="4_2rwbp"]
 [ext_resource type="Script" uid="uid://b6ps3g16neuwg" path="res://Enemies/Boss/attack_1.gd" id="5_p0c6u"]
 [ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Combat/hurtbox.gd" id="6_bh1y1"]
+[ext_resource type="Texture2D" uid="uid://dov6w18mle0ou" path="res://Enemies/_Art/attack1.png" id="9_es76l"]
 [ext_resource type="Texture2D" uid="uid://08th6lnrojdu" path="res://Levels/_Art/target.png" id="9_p0c6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvhj1"]
@@ -17,6 +18,42 @@ size = Vector2(128, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_es76l"]
 radius = 11.0
+
+[sub_resource type="Gradient" id="Gradient_p0c6u"]
+colors = PackedColorArray(1, 0.95468724, 0, 0.8, 1, 0.735357, 0, 0.1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_es76l"]
+gradient = SubResource("Gradient_p0c6u")
+
+[sub_resource type="Curve" id="Curve_8k2ks"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_blpaj"]
+curve = SubResource("Curve_8k2ks")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m5fas"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 11.0
+emission_ring_inner_radius = 9.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 8.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_blpaj")
+color = Color(1, 0.95281494, 0.58383155, 1)
+color_ramp = SubResource("GradientTexture1D_es76l")
+
+[sub_resource type="Gradient" id="Gradient_es76l"]
+offsets = PackedFloat32Array(0, 0.5072464, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.7977378, 0, 0.90000004, 1, 1, 0.9063318, 0)
 
 [node name="Boss" type="CharacterBody2D" groups=["Boss"]]
 collision_layer = 64
@@ -61,7 +98,36 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxAttack1"]
 shape = SubResource("CircleShape2D_es76l")
 
-[node name="Sprite2D" type="Sprite2D" parent="HitboxAttack1"]
+[node name="Attack1Sprite" type="Sprite2D" parent="HitboxAttack1"]
 texture = ExtResource("9_p0c6u")
+
+[node name="WarningCircle" type="Sprite2D" parent="HitboxAttack1"]
+texture = ExtResource("9_es76l")
+
+[node name="WarningParticles" type="GPUParticles2D" parent="HitboxAttack1"]
+emitting = false
+amount = 12
+lifetime = 0.6
+explosiveness = 0.1
+process_material = SubResource("ParticleProcessMaterial_m5fas")
+
+[node name="ImpactParticles" type="CPUParticles2D" parent="HitboxAttack1"]
+emitting = false
+amount = 15
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+damping_min = 30.0
+damping_max = 50.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_es76l")
 
 [connection signal="area_entered" from="HitboxAttack1" to="." method="_on_hitbox_attack_1_area_entered"]
