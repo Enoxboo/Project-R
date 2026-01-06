@@ -6,8 +6,6 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hitbox_attack_1: Area2D = $HitboxAttack1
 @onready var attack_1_sprite: Sprite2D = $HitboxAttack1/Attack1Sprite
-@onready var warning_particles: GPUParticles2D = $HitboxAttack1/WarningParticles
-@onready var impact_particles: CPUParticles2D = $HitboxAttack1/ImpactParticles
 
 @export var data: EnemyData
 var current_health: int
@@ -18,8 +16,6 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	hitbox_attack_1.visible = false
 	hitbox_attack_1.monitoring = false
-	attack_1_sprite.scale = Vector2(0.01, 0.01)
-
 
 
 func _on_hitbox_attack_1_area_entered(area: Area2D) -> void:
