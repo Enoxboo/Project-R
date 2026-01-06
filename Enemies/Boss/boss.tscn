@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chqc4wf1pfn8i"]
+[gd_scene load_steps=14 format=3 uid="uid://chqc4wf1pfn8i"]
 
 [ext_resource type="Script" uid="uid://bpmkrsojqbioc" path="res://Enemies/Boss/boss.gd" id="1_iiw74"]
 [ext_resource type="Texture2D" uid="uid://8rslteh1r0q2" path="res://Enemies/_Art/boss.png" id="2_bh1y1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cmik2mr1ruob3" path="res://Enemies/Boss/idle.gd" id="4_2rwbp"]
 [ext_resource type="Script" uid="uid://b6ps3g16neuwg" path="res://Enemies/Boss/attack_1.gd" id="5_p0c6u"]
 [ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Combat/hurtbox.gd" id="6_bh1y1"]
+[ext_resource type="Script" uid="uid://dyq5gs7v7cayq" path="res://Enemies/Boss/attack_2.gd" id="7_es76l"]
 [ext_resource type="Texture2D" uid="uid://btlrdapuo70d4" path="res://Enemies/_Art/attack1.png" id="9_es76l"]
 [ext_resource type="Texture2D" uid="uid://yklrmob0la7q" path="res://Enemies/_Art/attack1_warning.png" id="9_p0c6u"]
 
@@ -40,6 +41,10 @@ metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
 
 [node name="Attack1" type="Node" parent="StateMachine"]
 script = ExtResource("5_p0c6u")
+metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
+
+[node name="Attack2" type="Node" parent="StateMachine"]
+script = ExtResource("7_es76l")
 metadata/_custom_type_script = "uid://cpfcabqaqlbxc"
 
 [node name="Hurtbox" type="Area2D" parent="."]

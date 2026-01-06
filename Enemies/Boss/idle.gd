@@ -5,4 +5,4 @@ func enter(_data := { }) -> void:
 
 func physics_update(_delta: float) -> void:
 	if parent.attack_cooldown.is_stopped():
-		finished.emit(ATTACK1)
+		finished.emit(ATTACK2)

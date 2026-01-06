@@ -15,6 +15,7 @@ const CHASE = "Chase"
 const ATTACK_PROJECTILE = "AttackProjectile"
 const IDLE = "Idle"
 const ATTACK1 = "Attack1"
+const ATTACK2 = "Attack2"
 
 var parent: CharacterBody2D
 
