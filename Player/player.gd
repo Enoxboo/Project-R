@@ -116,3 +116,6 @@ func _on_wind_boost_decay_timeout() -> void:
 	is_wind_boost = false
 	speed_modifier = 1.0
 	print(data.speed)
+
+func get_stun_resistance() -> float:
+	return data.stun_resistance

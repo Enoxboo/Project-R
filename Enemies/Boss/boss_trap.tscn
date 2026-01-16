@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://3khqdsdhdsye"]
+
+[ext_resource type="Texture2D" uid="uid://bipijptiyk2ch" path="res://Enemies/_Art/attack_room.png" id="1_fj6qy"]
+[ext_resource type="Script" uid="uid://bme7ig7ldt06p" path="res://Enemies/Boss/boss_trap.gd" id="1_k2mjr"]
+[ext_resource type="Script" uid="uid://d1r1yw1bso4pb" path="res://Combat/hurtbox.gd" id="3_oc1ii"]
+
+[node name="BossTrap" type="Node2D"]
+script = ExtResource("1_k2mjr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 180)
+texture = ExtResource("1_fj6qy")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 180)
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-16, -180, 16, -180, 1, 180, -1, 180)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, 180)
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("3_oc1ii")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+polygon = PackedVector2Array(-16, -180, 16, -180, 1, 180, -1, 180)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

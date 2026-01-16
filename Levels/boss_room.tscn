@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://bd2iitqx7gqu7"]
+[gd_scene load_steps=9 format=4 uid="uid://bd2iitqx7gqu7"]
 
+[ext_resource type="Script" uid="uid://dm75meupfj3wg" path="res://Levels/boss_room.gd" id="1_1320o"]
 [ext_resource type="Texture2D" uid="uid://hcq66343gceq" path="res://Levels/_Art/scene.png" id="1_fe8cv"]
 [ext_resource type="PackedScene" uid="uid://damlylql1l7of" path="res://Player/player.tscn" id="2_tknyg"]
 [ext_resource type="PackedScene" uid="uid://chqc4wf1pfn8i" path="res://Enemies/Boss/boss.tscn" id="4_3ckme"]
@@ -33,6 +34,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_5rn7s")
 
 [node name="Room1" type="Node2D"]
+script = ExtResource("1_1320o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -49,3 +51,9 @@ position = Vector2(-279, 0)
 position = Vector2(-1, -140)
 
 [node name="Boss_UI" parent="." instance=ExtResource("5_nrrel")]
+
+[node name="RoomTrapSpawn1" type="Node2D" parent="."]
+position = Vector2(-227, -175)
+
+[node name="RoomTrapSpawn2" type="Node2D" parent="."]
+position = Vector2(231, -173)
