@@ -1,5 +1,7 @@
 class_name Moveset
 
+var projectile_config: ProjectileConfig
+
 func attack(player: Player) -> void:
 	if !player.can_attack:
 		return

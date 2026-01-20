@@ -4,16 +4,27 @@ const WIND = preload("uid://c2vcprt14i77g")
 
 
 func _init() -> void:
+	super._init()
+	
 	cooldown = 2.0
-	speed = 50.0
 	active_time = 10.0
-	damage = 0
-	stun_time = 0
-	size = Vector2(6.0, 30.0)
-	masks = [Layers.ENEMY_PROJECTILE, Layers.MANA_ZONE, Layers.PLAYER_SPELL_OFFENSIVE, Layers.PLAYER_SPELL_UTILITY, Layers.PLAYER_PROJECTILE, Layers.WALLS]
 	element = "Wind"
-	destruct_on_hit = false
-
+	mana_cost = 1
+	
+	spell_config.sprite = WIND
+	spell_config.speed = 50.0
+	spell_config.damage = 0
+	spell_config.stun_duration = 0
+	spell_config.size = Vector2(6.0, 30.0)
+	spell_config.collision_layer = Layers.PLAYER_SPELL_OFFENSIVE
+	spell_config.collision_masks = [
+		Layers.ENEMY_PROJECTILE, 
+		Layers.MANA_ZONE, 
+		Layers.PLAYER_SPELL_OFFENSIVE, 
+		Layers.PLAYER_SPELL_UTILITY, 
+		Layers.PLAYER_PROJECTILE, 
+		Layers.WALLS]
+	spell_config.destruct_on_hit = false
 
 func _on_area_entered(area: Area2D) -> void:
 	call_deferred("on_hit", area)

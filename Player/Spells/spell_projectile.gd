@@ -2,14 +2,10 @@ extends SpellBase
 
 class_name SpellProjectile
 
-var sprite: Texture2D
-var speed: float
-var damage: int
-var stun_time: float
-var size: Vector2
-var masks: Array
-var destruct_on_hit: bool
+var spell_config: ProjectileConfig
 
+func _init() -> void:
+	spell_config = ProjectileConfig.new()
 
 func cast(player):
 	if not super.cast(player):
@@ -18,5 +14,9 @@ func cast(player):
 	player.current_mana -= mana_cost
 	player.emit_signal("mana_changed")
 
-	var proj = ProjectileHelper.throw(player, sprite, size, speed, active_time, true, Layers.PLAYER_SPELL_OFFENSIVE, masks, damage, stun_time, element, destruct_on_hit) # ← Récupère le projectile
+	spell_config.element = element
+	spell_config.traveling_time = active_time
+	spell_config.is_ally = true
+	
+	var proj = ProjectileHelper.throw(player, spell_config)
 	return proj
