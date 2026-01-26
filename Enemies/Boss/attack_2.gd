@@ -2,9 +2,16 @@ extends State
 
 var projectile_config: ProjectileConfig
 var burst_count: int = 10
+var _is_setup: bool = false
 
-func _ready() -> void:
-	_setup_projectile_config()
+func enter(_data := {}) -> void:
+	if not _is_setup:
+		_setup_projectile_config()
+		_is_setup = true
+	
+	parent.attack_cooldown.wait_time = randf_range(1.0, 2.0)
+	await attack()
+	finished.emit(IDLE)
 
 func _setup_projectile_config() -> void:
 	projectile_config = ProjectileConfig.new()
@@ -23,11 +30,6 @@ func _setup_projectile_config() -> void:
 	projectile_config.stun_duration = parent.data.projectile_stun
 	projectile_config.element = "None"
 	projectile_config.destruct_on_hit = true
-
-func enter(_data := {}) -> void:
-	parent.attack_cooldown.wait_time = randf_range(1.0, 2.0)
-	await attack()
-	finished.emit(IDLE)
 
 func attack() -> void:
 	for x in burst_count:

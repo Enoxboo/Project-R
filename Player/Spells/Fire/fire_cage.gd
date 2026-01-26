@@ -4,7 +4,7 @@ const FIRE_CAGE = preload("uid://defbmy8fpr7s2")
 
 
 func _init() -> void:
-	cooldown = 0.1
+	cooldown = 10.0
 	scene = FIRE_CAGE
 	active_time = 10.0
 	element = "Fire"

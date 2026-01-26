@@ -34,6 +34,8 @@ var spell1_instance
 var spell2_instance
 var current_mana: float
 var speed_modifier: float = 1.0
+var base_speed_modifier: float = 1.0
+var wind_power: float = 2.0
 
 
 func _ready() -> void:
@@ -99,11 +101,11 @@ func _on_mana_changed() -> void:
 
 
 func wind_boost() -> void:
-	print("try wind boost")
-	if not is_wind_boost:
-		print("start wind boost")
-		is_wind_boost = true
-		speed_modifier = 2.0
+	if is_wind_boost:
+		return
+
+	is_wind_boost = true
+	speed_modifier = wind_power
 
 
 func end_wind_boost() -> void:
@@ -115,7 +117,7 @@ func end_wind_boost() -> void:
 func _on_wind_boost_decay_timeout() -> void:
 	is_wind_boost = false
 	speed_modifier = 1.0
-	print(data.speed)
+
 
 func get_stun_resistance() -> float:
 	return data.stun_resistance

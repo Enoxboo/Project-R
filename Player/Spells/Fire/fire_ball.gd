@@ -5,7 +5,7 @@ const FIRE = preload("uid://b2qji8hvgq83i")
 func _init() -> void:
 	super._init()
 	
-	cooldown = 2.0
+	cooldown = 4.0
 	active_time = 1.0
 	element = "Fire"
 	mana_cost = 1
