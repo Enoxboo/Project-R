@@ -11,5 +11,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.has_method("burn"):
-		area.burn(3, 2)
+	if area.get_parent().has_method("start_burning"):
+		area.get_parent().start_burning()
