@@ -22,6 +22,7 @@ var parent: CharacterBody2D
 func _ready() -> void:
 	await owner.ready
 	parent = owner as CharacterBody2D
+	print(parent)
 
 
 func physics_update(_delta: float) -> void:

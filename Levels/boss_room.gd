@@ -1,21 +1,49 @@
 extends Node2D
 
 const BOSS_TRAP = preload("uid://3khqdsdhdsye")
-@onready var room_trap_spawn_1: Node2D = $RoomTrapSpawn1
-@onready var room_trap_spawn_2: Node2D = $RoomTrapSpawn2
 
-var is_active = false
+var spawn_points = [
+	{
+		"position": Vector2(-435, -520),
+		"rotation": deg_to_rad(-20)
+	},
+	{
+		"position": Vector2(435, -520),
+		"rotation": deg_to_rad(20)
+	}
+]
 
-func _process(_delta: float) -> void:
-	if is_active:
+var trap_left: int = 0
+var is_boss_alive = true
+var can_spawn: bool = true
+
+func _ready():
+	_spawn_traps()
+
+func _spawn_traps():
+	if not is_boss_alive or not can_spawn:
 		return
 	
-	is_active = true
-	var trap1 = BOSS_TRAP.instantiate()
-	var trap2 = BOSS_TRAP.instantiate()
-	trap1.global_position = room_trap_spawn_1.global_position
-	trap2.global_position = room_trap_spawn_2.global_position
-	add_child(trap1)
-	add_child(trap2)
-	await get_tree().create_timer(1.0).timeout
+	can_spawn = false
+	trap_left = 2
 	
+	await get_tree().create_timer(2.0).timeout
+	
+	for i in range(2):
+		_create_trap()
+
+func _create_trap():
+	var spawn_data = spawn_points[randi() % spawn_points.size()]
+	
+	var trap = BOSS_TRAP.instantiate()
+	trap.global_position = spawn_data.position
+	trap.rotation = spawn_data.rotation
+	add_child(trap)
+	trap.tree_exiting.connect(_on_trap_destroyed)
+
+func _on_trap_destroyed():
+	trap_left -= 1
+	
+	if trap_left == 0:
+		can_spawn = true
+		_spawn_traps()
