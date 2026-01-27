@@ -8,7 +8,7 @@ static func apply_element(hurtbox: Area2D, element: String) -> void:
 
 	match element:
 		"Fire":
-			hurtbox.burn(2, 2)
+			hurtbox.get_parent().start_burning()
 		"Wind":
 			hurtbox.get_parent().wind_boost()
 
@@ -16,5 +16,7 @@ static func apply_element(hurtbox: Area2D, element: String) -> void:
 static func end_element(hurtbox: Area2D, element: String) -> void:
 	if Layers.is_hurtbox(hurtbox.collision_layer):
 		match element:
+			"Fire":
+				hurtbox.get_parent().end_burning()
 			"Wind":
 				hurtbox.get_parent().end_wind_boost()

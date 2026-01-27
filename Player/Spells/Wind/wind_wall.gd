@@ -6,7 +6,7 @@ const WIND = preload("uid://c2vcprt14i77g")
 func _init() -> void:
 	super._init()
 	
-	cooldown = 2.0
+	cooldown = 15.0
 	active_time = 10.0
 	element = "Wind"
 	mana_cost = 1

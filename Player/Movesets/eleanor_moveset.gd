@@ -1,7 +1,8 @@
-extends "res://Player/Movesets/_moveset_base.gd"
+extends Moveset
 
 const ARROW = preload("uid://uponwqt1ncca")
 var arrow_config: ProjectileConfig
+
 
 func _ready():
 	arrow_config = ProjectileConfig.new()
@@ -16,15 +17,17 @@ func _ready():
 		Layers.MANA_ZONE,
 		Layers.PLAYER_SPELL_OFFENSIVE,
 		Layers.PLAYER_SPELL_UTILITY,
-		Layers.WALLS
+		Layers.WALLS,
 	]
 	arrow_config.damage = 1
 	arrow_config.stun_duration = 1.0
 	arrow_config.element = "None"
 	arrow_config.destruct_on_hit = true
 
+
 func _perform_attack(player: Player) -> void:
 	ProjectileHelper.throw(player, arrow_config)
+
 
 func _end_attack(_player: Player) -> void:
 	print("fin")

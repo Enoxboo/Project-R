@@ -2,13 +2,12 @@ extends State
 
 var projectile_config: ProjectileConfig
 var burst_count: int = 10
-var _is_initialized: bool = false
-
+var _is_setup: bool = false
 
 func enter(_data := {}) -> void:
-	if not _is_initialized:
+	if not _is_setup:
 		_setup_projectile_config()
-		_is_initialized = true
+		_is_setup = true
 	
 	parent.attack_cooldown.wait_time = randf_range(1.0, 2.0)
 	await attack()
